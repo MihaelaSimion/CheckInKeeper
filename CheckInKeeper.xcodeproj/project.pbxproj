@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		47212FDB2156512C00FA2DAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47212FDA2156512C00FA2DAC /* AppDelegate.swift */; };
-		47212FDD2156512C00FA2DAC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47212FDC2156512C00FA2DAC /* ViewController.swift */; };
+		47212FDD2156512C00FA2DAC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47212FDC2156512C00FA2DAC /* LoginViewController.swift */; };
 		47212FE02156512C00FA2DAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47212FDE2156512C00FA2DAC /* Main.storyboard */; };
 		47212FE22156512D00FA2DAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47212FE12156512D00FA2DAC /* Assets.xcassets */; };
 		47212FE52156512D00FA2DAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47212FE32156512D00FA2DAC /* LaunchScreen.storyboard */; };
+		47C8513F2156B91A00CF7DE2 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C8513E2156B91A00CF7DE2 /* MyTabBarController.swift */; };
+		47F68EF22156A7F100C64FF5 /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F68EF12156A7F100C64FF5 /* LogoutViewController.swift */; };
 		F29C0369EB7BC2DD8868064C /* Pods_CheckInKeeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4390CC31A991098F259CD662 /* Pods_CheckInKeeper.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,11 +23,13 @@
 		4390CC31A991098F259CD662 /* Pods_CheckInKeeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckInKeeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47212FD72156512C00FA2DAC /* CheckInKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckInKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47212FDA2156512C00FA2DAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		47212FDC2156512C00FA2DAC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		47212FDC2156512C00FA2DAC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		47212FDF2156512C00FA2DAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		47212FE12156512D00FA2DAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47212FE42156512D00FA2DAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47212FE62156512D00FA2DAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47C8513E2156B91A00CF7DE2 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
+		47F68EF12156A7F100C64FF5 /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,11 +66,13 @@
 			isa = PBXGroup;
 			children = (
 				47212FDA2156512C00FA2DAC /* AppDelegate.swift */,
-				47212FDC2156512C00FA2DAC /* ViewController.swift */,
-				47212FDE2156512C00FA2DAC /* Main.storyboard */,
 				47212FE12156512D00FA2DAC /* Assets.xcassets */,
-				47212FE32156512D00FA2DAC /* LaunchScreen.storyboard */,
 				47212FE62156512D00FA2DAC /* Info.plist */,
+				47212FE32156512D00FA2DAC /* LaunchScreen.storyboard */,
+				47212FDC2156512C00FA2DAC /* LoginViewController.swift */,
+				47F68EF12156A7F100C64FF5 /* LogoutViewController.swift */,
+				47212FDE2156512C00FA2DAC /* Main.storyboard */,
+				47C8513E2156B91A00CF7DE2 /* MyTabBarController.swift */,
 			);
 			path = CheckInKeeper;
 			sourceTree = "<group>";
@@ -169,6 +175,10 @@
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -177,6 +187,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -212,7 +226,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47212FDD2156512C00FA2DAC /* ViewController.swift in Sources */,
+				47212FDD2156512C00FA2DAC /* LoginViewController.swift in Sources */,
+				47C8513F2156B91A00CF7DE2 /* MyTabBarController.swift in Sources */,
+				47F68EF22156A7F100C64FF5 /* LogoutViewController.swift in Sources */,
 				47212FDB2156512C00FA2DAC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

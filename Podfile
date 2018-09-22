@@ -6,5 +6,7 @@ target 'CheckInKeeper' do
   use_frameworks!
 
   # Pods for CheckInKeeper
-pod 'FBSDKLoginKit'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
 end
