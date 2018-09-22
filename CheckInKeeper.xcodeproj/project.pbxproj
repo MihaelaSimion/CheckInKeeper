@@ -12,9 +12,13 @@
 		47212FE02156512C00FA2DAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47212FDE2156512C00FA2DAC /* Main.storyboard */; };
 		47212FE22156512D00FA2DAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47212FE12156512D00FA2DAC /* Assets.xcassets */; };
 		47212FE52156512D00FA2DAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47212FE32156512D00FA2DAC /* LaunchScreen.storyboard */; };
+		F29C0369EB7BC2DD8868064C /* Pods_CheckInKeeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4390CC31A991098F259CD662 /* Pods_CheckInKeeper.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A61A8FBC83316433720D49E /* Pods-CheckInKeeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckInKeeper.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckInKeeper/Pods-CheckInKeeper.release.xcconfig"; sourceTree = "<group>"; };
+		2A97B7B00D9651512F810915 /* Pods-CheckInKeeper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckInKeeper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckInKeeper/Pods-CheckInKeeper.debug.xcconfig"; sourceTree = "<group>"; };
+		4390CC31A991098F259CD662 /* Pods_CheckInKeeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckInKeeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47212FD72156512C00FA2DAC /* CheckInKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckInKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47212FDA2156512C00FA2DAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47212FDC2156512C00FA2DAC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F29C0369EB7BC2DD8868064C /* Pods_CheckInKeeper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				47212FD92156512C00FA2DAC /* CheckInKeeper */,
 				47212FD82156512C00FA2DAC /* Products */,
+				E6EC32C785234C3000B4F8A3 /* Pods */,
+				8E271CC4EB8A149E087B0122 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = CheckInKeeper;
 			sourceTree = "<group>";
 		};
+		8E271CC4EB8A149E087B0122 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4390CC31A991098F259CD662 /* Pods_CheckInKeeper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E6EC32C785234C3000B4F8A3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2A97B7B00D9651512F810915 /* Pods-CheckInKeeper.debug.xcconfig */,
+				0A61A8FBC83316433720D49E /* Pods-CheckInKeeper.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 47212FE92156512D00FA2DAC /* Build configuration list for PBXNativeTarget "CheckInKeeper" */;
 			buildPhases = (
+				BFC253848653D5AC598D8D51 /* [CP] Check Pods Manifest.lock */,
 				47212FD32156512C00FA2DAC /* Sources */,
 				47212FD42156512C00FA2DAC /* Frameworks */,
 				47212FD52156512C00FA2DAC /* Resources */,
+				49B93B955DD3511EE8B20818 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		49B93B955DD3511EE8B20818 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CheckInKeeper/Pods-CheckInKeeper-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CheckInKeeper/Pods-CheckInKeeper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BFC253848653D5AC598D8D51 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CheckInKeeper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		47212FD32156512C00FA2DAC /* Sources */ = {
@@ -280,6 +357,7 @@
 		};
 		47212FEA2156512D00FA2DAC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A97B7B00D9651512F810915 /* Pods-CheckInKeeper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +376,7 @@
 		};
 		47212FEB2156512D00FA2DAC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A61A8FBC83316433720D49E /* Pods-CheckInKeeper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
