@@ -9,6 +9,8 @@
 import UIKit
 import FacebookCore
 import FacebookLogin
+import GoogleMaps
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        GMSServices.provideAPIKey("AIzaSyAOaNZza20i5VkAVr9JEztGf_xaNoMwbbo")
+        
         if AccessToken.current != nil {
             showTabBarVC()
         } else {

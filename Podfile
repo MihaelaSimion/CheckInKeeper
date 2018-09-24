@@ -9,4 +9,6 @@ target 'CheckInKeeper' do
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
 end

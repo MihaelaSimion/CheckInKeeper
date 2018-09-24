@@ -64,15 +64,30 @@
         <!--MapVC-->
         <scene sceneID="JKK-Ex-0uG">
             <objects>
-                <viewController title="MapVC" id="y77-EM-9CQ" sceneMemberID="viewController">
+                <viewController title="MapVC" id="y77-EM-9CQ" customClass="MapViewController" customModule="CheckInKeeper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WNF-Af-Nsy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AVi-9F-ecO" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="AVi-9F-ecO" secondAttribute="bottom" constant="49" id="4al-Ai-Icv"/>
+                            <constraint firstItem="AVi-9F-ecO" firstAttribute="top" secondItem="WNF-Af-Nsy" secondAttribute="top" id="Nr9-es-qAs"/>
+                            <constraint firstItem="AVi-9F-ecO" firstAttribute="leading" secondItem="WNF-Af-Nsy" secondAttribute="leading" id="Rpr-av-g5k"/>
+                            <constraint firstAttribute="trailing" secondItem="AVi-9F-ecO" secondAttribute="trailing" id="vMv-6R-qNp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2Bs-AP-1T6"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" id="zxc-Xu-xAI"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="mapView" destination="AVi-9F-ecO" id="4fO-AI-kOD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ffv-pE-9fA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

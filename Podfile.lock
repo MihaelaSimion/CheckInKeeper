@@ -24,11 +24,20 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.36.0):
     - FBSDKCoreKit (~> 4.36.0)
+  - GoogleMaps (2.7.0):
+    - GoogleMaps/Maps (= 2.7.0)
+  - GoogleMaps/Base (2.7.0)
+  - GoogleMaps/Maps (2.7.0):
+    - GoogleMaps/Base
+  - GooglePlaces (2.7.0):
+    - GoogleMaps/Base (= 2.7.0)
 
 DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
+  - GoogleMaps
+  - GooglePlaces
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -39,6 +48,8 @@ SPEC REPOS:
     - FBSDKCoreKit
     - FBSDKLoginKit
     - FBSDKShareKit
+    - GoogleMaps
+    - GooglePlaces
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
@@ -48,7 +59,9 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 3b8e6570eedb443f9fc4af196a7bf39f18e3a3d8
   FBSDKLoginKit: 8bccb6064708ab2f4251a7fc4e3b6d8d00ad91ba
   FBSDKShareKit: 7090fdd55c39b03941efddb64c83a64ff6b3949f
+  GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
+  GooglePlaces: 3d06e6c99654545b4738ce49648745779c25f2ef
 
-PODFILE CHECKSUM: 75b4a61e828d75367a06585c63cf5c6db6e39a90
+PODFILE CHECKSUM: 490fd28500ad5f62bff2fd63c3938c60fc836eef
 
 COCOAPODS: 1.5.3
