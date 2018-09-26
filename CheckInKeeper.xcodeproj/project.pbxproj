@@ -12,6 +12,9 @@
 		47212FE02156512C00FA2DAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47212FDE2156512C00FA2DAC /* Main.storyboard */; };
 		47212FE22156512D00FA2DAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47212FE12156512D00FA2DAC /* Assets.xcassets */; };
 		47212FE52156512D00FA2DAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47212FE32156512D00FA2DAC /* LaunchScreen.storyboard */; };
+		478D1C24215A46AD00F0784A /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C23215A46AD00F0784A /* ModelData.swift */; };
+		478D1C26215A5EE500F0784A /* MyProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C25215A5EE500F0784A /* MyProfileRequest.swift */; };
+		478D1C28215BB6C300F0784A /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C27215BB6C300F0784A /* NotificationExtension.swift */; };
 		47C51B2221592EE900F13ECE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C51B2121592EE900F13ECE /* MapViewController.swift */; };
 		47C8513F2156B91A00CF7DE2 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C8513E2156B91A00CF7DE2 /* MyTabBarController.swift */; };
 		47F68EF22156A7F100C64FF5 /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F68EF12156A7F100C64FF5 /* LogoutViewController.swift */; };
@@ -29,6 +32,9 @@
 		47212FE12156512D00FA2DAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47212FE42156512D00FA2DAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47212FE62156512D00FA2DAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		478D1C23215A46AD00F0784A /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		478D1C25215A5EE500F0784A /* MyProfileRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileRequest.swift; sourceTree = "<group>"; };
+		478D1C27215BB6C300F0784A /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
 		47C51B2121592EE900F13ECE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		47C8513E2156B91A00CF7DE2 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		47F68EF12156A7F100C64FF5 /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
@@ -74,8 +80,11 @@
 				47212FDC2156512C00FA2DAC /* LoginViewController.swift */,
 				47F68EF12156A7F100C64FF5 /* LogoutViewController.swift */,
 				47212FDE2156512C00FA2DAC /* Main.storyboard */,
-				47C8513E2156B91A00CF7DE2 /* MyTabBarController.swift */,
 				47C51B2121592EE900F13ECE /* MapViewController.swift */,
+				478D1C23215A46AD00F0784A /* ModelData.swift */,
+				478D1C25215A5EE500F0784A /* MyProfileRequest.swift */,
+				47C8513E2156B91A00CF7DE2 /* MyTabBarController.swift */,
+				478D1C27215BB6C300F0784A /* NotificationExtension.swift */,
 			);
 			path = CheckInKeeper;
 			sourceTree = "<group>";
@@ -255,7 +264,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				47212FDD2156512C00FA2DAC /* LoginViewController.swift in Sources */,
+				478D1C24215A46AD00F0784A /* ModelData.swift in Sources */,
+				478D1C28215BB6C300F0784A /* NotificationExtension.swift in Sources */,
 				47C8513F2156B91A00CF7DE2 /* MyTabBarController.swift in Sources */,
+				478D1C26215A5EE500F0784A /* MyProfileRequest.swift in Sources */,
 				47F68EF22156A7F100C64FF5 /* LogoutViewController.swift in Sources */,
 				47C51B2221592EE900F13ECE /* MapViewController.swift in Sources */,
 				47212FDB2156512C00FA2DAC /* AppDelegate.swift in Sources */,
