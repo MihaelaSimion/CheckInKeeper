@@ -8,10 +8,21 @@
 
 import UIKit
 
+private let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .medium
+    formatter.timeStyle = .short
+    return formatter
+}()
+
 class ListTableViewController: UITableViewController {
     var taggedPlaces: [TaggedPlace]?
     
     override func viewDidLoad() {
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
+        tableView.refreshControl = refresh
+        
         super.viewDidLoad()
         getCheckinData()
         NotificationCenter.default.addObserver(self, selector: #selector(getCheckinData), name: .taggedPlaceResponseChanged, object: nil)
@@ -29,6 +40,13 @@ class ListTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    @objc func refreshAction() {
+        if let tabBar = tabBarController as? MyTabBarController {
+            tabBar.getUserDetails()
+        }
+        tableView.refreshControl?.endRefreshing()
+    }
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard taggedPlaces != nil else { return 0 }
@@ -40,17 +58,31 @@ class ListTableViewController: UITableViewController {
         if taggedPlaces != nil {
             cell.textLabel?.text = taggedPlaces![indexPath.row].place.name
             cell.detailTextLabel?.text = taggedPlaces![indexPath.row].created_time
+            
+            guard let unformatedStringDate = taggedPlaces![indexPath.row].created_time else { return cell }
+            guard let formatedDate = dateFormatter.date(from: unformatedStringDate) else { return cell }
+            let formatedStringDate = dateFormatter.string(from: formatedDate)
+            cell.detailTextLabel?.text = formatedStringDate
+            
             return cell
         } else {
             return cell
         }
     }
     
-    // MARK: - Navigation
+    //MARK: Table View Delegate
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "detailsSegue", sender: self)
+    }
+    
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
+        if let controller = segue.destination as? DetailsTableViewController {
+            
+        }
         // Pass the selected object to the new view controller.
     }
     
