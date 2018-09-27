@@ -73,17 +73,18 @@ class ListTableViewController: UITableViewController {
     //MARK: Table View Delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        guard taggedPlaces != nil else { return }
         performSegue(withIdentifier: "detailsSegue", sender: self)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
         if let controller = segue.destination as? DetailsTableViewController {
-            
+            guard let taggedPlaces = taggedPlaces else { return }
+            guard let index = tableView.indexPathForSelectedRow?.row else { return }
+            controller.taggedPlace = taggedPlaces[index]
         }
-        // Pass the selected object to the new view controller.
     }
-    
 }

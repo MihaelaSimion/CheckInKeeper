@@ -79,8 +79,10 @@
 			children = (
 				47212FDA2156512C00FA2DAC /* AppDelegate.swift */,
 				47212FE12156512D00FA2DAC /* Assets.xcassets */,
+				478D1C2D215D3EFF00F0784A /* DetailsTableViewController.swift */,
 				47212FE62156512D00FA2DAC /* Info.plist */,
 				47212FE32156512D00FA2DAC /* LaunchScreen.storyboard */,
+				478D1C29215CF0CF00F0784A /* ListTableViewController.swift */,
 				47212FDC2156512C00FA2DAC /* LoginViewController.swift */,
 				47F68EF12156A7F100C64FF5 /* LogoutViewController.swift */,
 				47212FDE2156512C00FA2DAC /* Main.storyboard */,
@@ -89,8 +91,6 @@
 				478D1C25215A5EE500F0784A /* MyProfileRequest.swift */,
 				47C8513E2156B91A00CF7DE2 /* MyTabBarController.swift */,
 				478D1C27215BB6C300F0784A /* NotificationExtension.swift */,
-				478D1C2D215D3EFF00F0784A /* DetailsTableViewController.swift */,
-				478D1C29215CF0CF00F0784A /* ListTableViewController.swift */,
 			);
 			path = CheckInKeeper;
 			sourceTree = "<group>";
