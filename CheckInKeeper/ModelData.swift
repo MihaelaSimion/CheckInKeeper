@@ -25,13 +25,13 @@ struct TaggedPlacesResponse: Codable {
 
 struct TaggedPlace: Codable {
     var place: Place
+    var created_time: String?
     init?(anyData: Any?) {
-        guard let anyData = anyData as? Dictionary<String, Any> else { return nil}
-        if let place = Place(anyData: anyData["place"]) {
+        guard let anyData = anyData as? Dictionary<String, Any> else { return nil }
+        guard let place = Place(anyData: anyData["place"]) else { return nil }
             self.place = place
-        } else {
-            return nil
-        }
+        guard let date = anyData["created_time"] as? String else { return nil }
+        self.created_time = date
     }
 }
 
@@ -54,7 +54,7 @@ struct Location: Codable {
     var longitude: Double
     var street: String
     
-    init?(anyData: Any) {
+    init?(anyData: Any?) {
         guard let dictionary = anyData as? Dictionary<String, Any> else { return nil }
         guard let lat = dictionary["latitude"] as? Double else { return nil }
         self.latitude = lat
