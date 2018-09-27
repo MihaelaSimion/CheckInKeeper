@@ -25,12 +25,13 @@ struct TaggedPlacesResponse: Codable {
 
 struct TaggedPlace: Codable {
     var place: Place
-    var created_time: String?
+    var created_time: Date?
     init?(anyData: Any?) {
         guard let anyData = anyData as? Dictionary<String, Any> else { return nil }
         guard let place = Place(anyData: anyData["place"]) else { return nil }
             self.place = place
-        guard let date = anyData["created_time"] as? String else { return nil }
+        guard let dateString = anyData["created_time"] as? String else { return nil }
+        guard let date = dateString.facebookStringValueToDate() else { return nil }
         self.created_time = date
     }
 }

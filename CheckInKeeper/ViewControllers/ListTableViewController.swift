@@ -8,12 +8,6 @@
 
 import UIKit
 
-private let dateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .medium
-    formatter.timeStyle = .short
-    return formatter
-}()
 
 class ListTableViewController: UITableViewController {
     var taggedPlaces: [TaggedPlace]?
@@ -55,15 +49,9 @@ class ListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseCell", for: indexPath)
-        if taggedPlaces != nil {
-            cell.textLabel?.text = taggedPlaces![indexPath.row].place.name
-            cell.detailTextLabel?.text = taggedPlaces![indexPath.row].created_time
-            
-            guard let unformatedStringDate = taggedPlaces![indexPath.row].created_time else { return cell }
-            guard let formatedDate = dateFormatter.date(from: unformatedStringDate) else { return cell }
-            let formatedStringDate = dateFormatter.string(from: formatedDate)
-            cell.detailTextLabel?.text = formatedStringDate
-            
+        if let taggedPlaces = taggedPlaces {
+            cell.textLabel?.text = taggedPlaces[indexPath.row].place.name
+            cell.detailTextLabel?.text = taggedPlaces[indexPath.row].created_time?.toCustomPrint()
             return cell
         } else {
             return cell

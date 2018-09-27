@@ -23,7 +23,7 @@ class DetailsTableViewController: UITableViewController {
         super.viewDidLoad()
         guard let taggedPlace = taggedPlace else { return }
         placeNameLabel.text = taggedPlace.place.name
-        dateLabel.text = taggedPlace.created_time
+        dateLabel.text = taggedPlace.created_time?.toCustomPrint()
         cityLabel.text = taggedPlace.place.location.city
         countryLabel.text = taggedPlace.place.location.country
         streetLabel.text = taggedPlace.place.location.street
