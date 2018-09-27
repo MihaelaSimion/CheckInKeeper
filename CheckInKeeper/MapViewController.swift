@@ -9,12 +9,10 @@
 import UIKit
 import GoogleMaps
 
-
 class MapViewController: UIViewController {
     let locationManager = CLLocationManager()
     @IBOutlet weak var mapView: GMSMapView!
-    var locations: [Location]?
-    var placeNames: [String]?
+    var places: [Place]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,36 +24,24 @@ class MapViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
     }
     
-    func addMarkers(locations: [Location]) {
-        var count = 0
-        for location in locations {
-            let locationIndex = count
-            let position = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+    func addMarkers(places: [Place]) {
+        for place in places {
+            let position = CLLocationCoordinate2D(latitude: place.location.latitude, longitude: place.location.longitude)
             let marker = GMSMarker(position: position)
-            if let names = placeNames {
-                marker.title = names[locationIndex]
-            }
-            marker.icon = GMSMarker.markerImage(with: .yellow)
+            marker.title = place.name
+            marker.icon = GMSMarker.markerImage(with: .green)
             marker.map = mapView
-            count += 1
         }
-        
     }
     
     @objc func getTaggedPlaceValues() {
         if let tabController = tabBarController as? MyTabBarController {
-            if let placeNamesArray = tabController.taggedPlaceResponse?.data.map({ (element) -> String in
-                return element.place.name
+            if let placesData = tabController.taggedPlaceResponse?.data.map({ (element) -> Place in
+                return element.place
             }) {
-                placeNames = placeNamesArray
-            }
-            
-            if let locationsData = tabController.taggedPlaceResponse?.data.map({ (element) -> Location in
-                return element.place.location
-            }) {
-                locations = locationsData
-                guard let locationsForMarkers = locations else { return }
-                addMarkers(locations: locationsForMarkers)
+                places = placesData
+                guard let placesForMarkers = places else { return }
+                addMarkers(places: placesForMarkers)
             }
         }
     }
