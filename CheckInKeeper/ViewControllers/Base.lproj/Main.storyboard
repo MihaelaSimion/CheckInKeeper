@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnL-wW-wqB">
-                                <rect key="frame" x="80" y="267.5" width="160" height="33"/>
+                                <rect key="frame" x="131" y="466" width="58" height="33"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="Logout">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -27,22 +27,50 @@
                                     <action selector="logoutButtonPressed:" destination="cCl-W4-eYq" eventType="touchUpInside" id="pwO-I7-1bn"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User's Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Iwz-KL-eGp">
+                                <rect key="frame" x="111" y="150" width="98" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User's ID" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PCK-ZF-GR8">
+                                <rect key="frame" x="125.5" y="180.5" width="69.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Facebook-logo" translatesAutoresizingMaskIntoConstraints="NO" id="Qw0-pq-0uj">
+                                <rect key="frame" x="110" y="40" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="F5J-bD-wOF"/>
+                                    <constraint firstAttribute="height" constant="100" id="xea-VJ-iAN"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.19215686274509802" green="0.67843137254901964" blue="0.84313725490196079" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Une-0b-7e0" firstAttribute="trailing" secondItem="tnL-wW-wqB" secondAttribute="trailing" constant="80" id="AbX-lW-z6B"/>
-                            <constraint firstItem="tnL-wW-wqB" firstAttribute="centerX" secondItem="93I-C4-VNi" secondAttribute="centerX" id="RCw-JB-Wmf"/>
-                            <constraint firstItem="tnL-wW-wqB" firstAttribute="centerY" secondItem="93I-C4-VNi" secondAttribute="centerY" id="c8V-gd-s1c"/>
-                            <constraint firstItem="tnL-wW-wqB" firstAttribute="leading" secondItem="Une-0b-7e0" secondAttribute="leading" constant="80" id="etC-0o-9wD"/>
+                            <constraint firstItem="Une-0b-7e0" firstAttribute="bottom" secondItem="tnL-wW-wqB" secondAttribute="bottom" constant="20" id="4OR-kz-vuw"/>
+                            <constraint firstItem="Iwz-KL-eGp" firstAttribute="top" secondItem="Qw0-pq-0uj" secondAttribute="bottom" constant="10" id="E8W-ZZ-VWu"/>
+                            <constraint firstItem="Qw0-pq-0uj" firstAttribute="centerX" secondItem="93I-C4-VNi" secondAttribute="centerX" id="Hwj-Hd-Ogn"/>
+                            <constraint firstItem="tnL-wW-wqB" firstAttribute="centerX" secondItem="93I-C4-VNi" secondAttribute="centerX" id="RuP-f0-zNo"/>
+                            <constraint firstItem="Iwz-KL-eGp" firstAttribute="centerX" secondItem="Qw0-pq-0uj" secondAttribute="centerX" id="ZZc-46-Z03"/>
+                            <constraint firstItem="PCK-ZF-GR8" firstAttribute="top" secondItem="Iwz-KL-eGp" secondAttribute="bottom" constant="10" id="aGx-A4-zbd"/>
+                            <constraint firstItem="Qw0-pq-0uj" firstAttribute="top" secondItem="Une-0b-7e0" secondAttribute="top" constant="20" id="pzF-Wx-JKw"/>
+                            <constraint firstItem="PCK-ZF-GR8" firstAttribute="centerX" secondItem="Iwz-KL-eGp" secondAttribute="centerX" id="tFf-EJ-glp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Une-0b-7e0"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Logout" id="XEG-9W-fni"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="imageView" destination="Qw0-pq-0uj" id="YI0-Nc-CgL"/>
+                        <outlet property="userIDLabel" destination="PCK-ZF-GR8" id="Da0-9K-8Nx"/>
+                        <outlet property="userNameLabel" destination="Iwz-KL-eGp" id="rHQ-wL-f6u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Icz-50-kMN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-589" y="832"/>
+            <point key="canvasLocation" x="-600" y="920.625"/>
         </scene>
         <!--My Tab Bar Controller-->
         <scene sceneID="dCY-8f-aJ7">
@@ -358,4 +386,7 @@
             <point key="canvasLocation" x="547.5" y="225"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Facebook-logo" width="150" height="150"/>
+    </resources>
 </document>

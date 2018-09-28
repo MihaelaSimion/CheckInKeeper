@@ -16,6 +16,9 @@ protocol LogoutProtocol {
 class MyTabBarController: UITabBarController {
     var logoutDelegate: LogoutProtocol?
     var taggedPlaceResponse: TaggedPlacesResponse?
+    var userName: String?
+    var userID: String?
+    var profilePicture: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +31,13 @@ class MyTabBarController: UITabBarController {
             switch result {
             case .success(let response):
                 print("Graph Request Succeeded: \(response)")
-                if let userID = response.dictionaryValue?["id"] {
+                if let name = response.dictionaryValue?["name"] as? String {
+                    self.userName = name
+                }
+                if let userID = response.dictionaryValue?["id"] as? String {
+                    self.userID = userID
                     self.getCheckinList(for: userID)
+                    self.getProfilePicture(for: userID)
                 }
             case .failed(let error):
                 print("Graph Request Failed: \(error)")
@@ -52,5 +60,16 @@ class MyTabBarController: UITabBarController {
             }
         }
         connection.start()
+    }
+    
+    func getProfilePicture(for userID: Any) {
+        let url = URL(string: "https://graph.facebook.com/\(userID)/picture?type=normal")
+        DispatchQueue.global().async {
+            if let url = url, let data = try? Data(contentsOf: url) {
+                DispatchQueue.main.async {
+                    self.profilePicture = UIImage(data: data)
+                }
+            }
+        }
     }
 }

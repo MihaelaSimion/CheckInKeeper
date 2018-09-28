@@ -28,7 +28,7 @@ class ListTableViewController: UITableViewController {
     
     func createSearchBar() {
         let searchBar = UISearchBar()
-        searchBar.placeholder = "Search for your check-ins"
+        searchBar.placeholder = "Search for check-ins"
         searchBar.delegate = self
         searchBar.showsCancelButton = true
         navigationItem.titleView = searchBar
@@ -55,8 +55,8 @@ class ListTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard taggedPlaces != nil else { return 0 }
-        return taggedPlaces!.count
+        guard let taggedPlaces = taggedPlaces else { return 0 }
+        return taggedPlaces.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

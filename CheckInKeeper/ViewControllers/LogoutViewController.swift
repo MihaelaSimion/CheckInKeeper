@@ -11,6 +11,9 @@ import FacebookCore
 import FacebookLogin
 
 class LogoutViewController: UIViewController {
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var userIDLabel: UILabel!
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
         let loginManager = LoginManager()
@@ -22,5 +25,11 @@ class LogoutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let controller = tabBarController as? MyTabBarController {
+            guard let id = controller.userID, let name = controller.userName, let image = controller.profilePicture else { return }
+            userNameLabel.text = name
+            userIDLabel.text = "Digital ID: \(id)"
+            imageView.image = image
+        }
     }
 }

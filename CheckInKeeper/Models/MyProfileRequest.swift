@@ -26,7 +26,7 @@ struct MyProfileRequest: GraphRequestProtocol {
     init(graphPath: String) {
         self.graphPath = graphPath
     }
-
+    
     var accessToken = AccessToken.current
     var httpMethod: GraphRequestHTTPMethod = .GET
     var apiVersion: GraphAPIVersion = .defaultVersion
