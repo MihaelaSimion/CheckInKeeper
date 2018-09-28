@@ -19,14 +19,16 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnL-wW-wqB">
                                 <rect key="frame" x="80" y="267.5" width="160" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Logout"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="logoutButtonPressed:" destination="cCl-W4-eYq" eventType="touchUpInside" id="pwO-I7-1bn"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.19215686274509802" green="0.67843137254901964" blue="0.84313725490196079" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Une-0b-7e0" firstAttribute="trailing" secondItem="tnL-wW-wqB" secondAttribute="trailing" constant="80" id="AbX-lW-z6B"/>
                             <constraint firstItem="tnL-wW-wqB" firstAttribute="centerX" secondItem="93I-C4-VNi" secondAttribute="centerX" id="RCw-JB-Wmf"/>
@@ -49,7 +51,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Vw1-rV-Z1P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.01658818493150685" green="0.023410744863013699" blue="0.041898539009159561" alpha="0.64000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="y77-EM-9CQ" kind="relationship" relationship="viewControllers" id="qeG-Kh-M1p"/>
@@ -100,7 +103,9 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dnP-V3-a38">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.075343934662906203" green="0.55674900953532114" blue="0.88524984051839917" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="reuseCell" textLabel="fjF-Xu-w3G" detailTextLabel="we2-SQ-gm2" style="IBUITableViewCellStyleSubtitle" id="ypG-IP-waC">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
@@ -133,7 +138,7 @@
                             <outlet property="delegate" destination="R6e-9Y-sqQ" id="eJS-iZ-eCM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Check-ins" largeTitleDisplayMode="always" id="UzK-ZY-B5V"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="UzK-ZY-B5V"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="O3C-cQ-PoK" kind="show" identifier="detailsSegue" id="5Gp-Xg-exV"/>
@@ -304,22 +309,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ki-BL-TYz">
-                                <rect key="frame" x="80" y="269" width="160" height="30"/>
+                                <rect key="frame" x="70" y="269" width="180" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="cTd-cd-7Ll"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="Login with Facebook"/>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="4Wm-Hs-xDj" eventType="touchUpInside" id="c0t-uI-PR8"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.19309182363013702" green="0.67966074486301364" blue="0.84289383561643838" alpha="0.89918664383561642" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="7ki-BL-TYz" firstAttribute="centerY" secondItem="4k4-8S-rK8" secondAttribute="centerY" id="E0W-Rg-pNz"/>
-                            <constraint firstItem="7ki-BL-TYz" firstAttribute="leading" secondItem="J3B-as-AxO" secondAttribute="leading" constant="80" id="S8c-GD-ziM"/>
-                            <constraint firstItem="J3B-as-AxO" firstAttribute="trailing" secondItem="7ki-BL-TYz" secondAttribute="trailing" constant="80" id="pjS-8H-2Yb"/>
+                            <constraint firstItem="7ki-BL-TYz" firstAttribute="leading" secondItem="J3B-as-AxO" secondAttribute="leading" constant="70" id="S8c-GD-ziM"/>
+                            <constraint firstItem="J3B-as-AxO" firstAttribute="trailing" secondItem="7ki-BL-TYz" secondAttribute="trailing" constant="70" id="pjS-8H-2Yb"/>
                             <constraint firstItem="7ki-BL-TYz" firstAttribute="centerX" secondItem="4k4-8S-rK8" secondAttribute="centerX" id="vsa-Qx-Psg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="J3B-as-AxO"/>
@@ -338,8 +344,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eqx-Ly-9Ke" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="List" id="SSH-o8-mNB"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JkW-Kc-LDM">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="JkW-Kc-LDM">
+                        <rect key="frame" x="0.0" y="20" width="320" height="91"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

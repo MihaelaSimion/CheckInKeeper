@@ -8,18 +8,26 @@
 
 import UIKit
 
-
 class ListTableViewController: UITableViewController {
     var taggedPlaces: [TaggedPlace]?
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        createSearchBar()
+        
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
         tableView.refreshControl = refresh
         
-        super.viewDidLoad()
         getCheckinData()
         NotificationCenter.default.addObserver(self, selector: #selector(getCheckinData), name: .taggedPlaceResponseChanged, object: nil)
+    }
+    
+    func createSearchBar() {
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "Search for your check-ins"
+        searchBar.delegate = self
+        navigationItem.titleView = searchBar
     }
     
     @objc func getCheckinData() {
@@ -75,4 +83,9 @@ class ListTableViewController: UITableViewController {
             controller.taggedPlace = taggedPlaces[index]
         }
     }
+}
+
+//MARK: Search Bar Delegate:
+extension ListTableViewController: UISearchBarDelegate {
+    
 }

@@ -21,6 +21,7 @@ class DetailsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         guard let taggedPlace = taggedPlace else { return }
         placeNameLabel.text = taggedPlace.place.name
         dateLabel.text = taggedPlace.created_time?.toCustomPrint()
