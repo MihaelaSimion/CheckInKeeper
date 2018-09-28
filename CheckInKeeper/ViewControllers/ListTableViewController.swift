@@ -71,7 +71,6 @@ class ListTableViewController: UITableViewController {
     }
     
     //MARK: Table View Delegate
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard taggedPlaces != nil else { return }
         performSegue(withIdentifier: "detailsSegue", sender: self)

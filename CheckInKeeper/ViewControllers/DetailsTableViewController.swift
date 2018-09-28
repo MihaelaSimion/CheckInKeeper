@@ -31,4 +31,10 @@ class DetailsTableViewController: UITableViewController {
         latitudeLabel.text = String(format: "%.8f", taggedPlace.place.location.latitude)
         longitudeLabel.text = String(format: "%.8f", taggedPlace.place.location.longitude)
     }
+    
+    //MARK: Delegate method:
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
+
