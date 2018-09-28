@@ -10,10 +10,13 @@ import UIKit
 
 class ListTableViewController: UITableViewController {
     var taggedPlaces: [TaggedPlace]?
+    let myColor = UIColor(red: 19, green: 142, blue: 226, alpha: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         createSearchBar()
+        
+        // view.backgroundColor = myColor
         
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
@@ -27,6 +30,7 @@ class ListTableViewController: UITableViewController {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Search for your check-ins"
         searchBar.delegate = self
+        searchBar.showsCancelButton = true
         navigationItem.titleView = searchBar
     }
     
@@ -87,5 +91,27 @@ class ListTableViewController: UITableViewController {
 
 //MARK: Search Bar Delegate:
 extension ListTableViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        let firstThreeLettersPlaceNameArray = taggedPlaces?.filter({ (tagedPlace) -> Bool in
+            return tagedPlace.place.name == searchBar.text || tagedPlace.place.name.prefix(3) == searchBar.text?.prefix(3) ||
+                tagedPlace.place.name.prefix(2) == searchBar.text?.prefix(2) || tagedPlace.place.name.prefix(1) == searchBar.text?.prefix(1)
+        })
+        taggedPlaces = firstThreeLettersPlaceNameArray
+        // view.backgroundColor = .white
+        tableView.reloadData()
+    }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        // view.backgroundColor = myColor
+        searchBar.resignFirstResponder()
+        searchBar.text = nil
+        getCheckinData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty == true {
+            getCheckinData()
+        }
+    }
 }
