@@ -60,7 +60,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Une-0b-7e0"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Logout" id="XEG-9W-fni"/>
+                    <tabBarItem key="tabBarItem" title="Logout" image="logoutFromProfile" id="XEG-9W-fni"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="Qw0-pq-0uj" id="YI0-Nc-CgL"/>
@@ -79,8 +79,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Vw1-rV-Z1P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.01658818493150685" green="0.023410744863013699" blue="0.041898539009159561" alpha="0.64000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="selectedImageTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="y77-EM-9CQ" kind="relationship" relationship="viewControllers" id="qeG-Kh-M1p"/>
@@ -114,7 +113,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2Bs-AP-1T6"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="zxc-Xu-xAI"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="locationPin" id="zxc-Xu-xAI"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="AVi-9F-ecO" id="4fO-AI-kOD"/>
@@ -159,6 +158,28 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="nothingFoundCell" id="ecc-WN-9bb">
+                                <rect key="frame" x="0.0" y="72" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ecc-WN-9bb" id="gJ1-bB-ZMh">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nothing found! 🧐" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXD-ul-o2f">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="RXD-ul-o2f" firstAttribute="leading" secondItem="gJ1-bB-ZMh" secondAttribute="leading" id="Phi-da-Z2r"/>
+                                        <constraint firstItem="RXD-ul-o2f" firstAttribute="top" secondItem="gJ1-bB-ZMh" secondAttribute="top" id="WCb-Oq-Scu"/>
+                                        <constraint firstAttribute="bottom" secondItem="RXD-ul-o2f" secondAttribute="bottom" id="mKG-2d-cv4"/>
+                                        <constraint firstAttribute="trailing" secondItem="RXD-ul-o2f" secondAttribute="trailing" id="mny-eb-QaK"/>
+                                    </constraints>
+                                </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -328,6 +349,34 @@
             </objects>
             <point key="canvasLocation" x="2312" y="225"/>
         </scene>
+        <!--Table View Controller-->
+        <scene sceneID="ECs-j9-CfJ">
+            <objects>
+                <tableViewController id="lP7-Jy-hcA" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="L4e-6z-nTw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="m5C-Pt-4kn">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m5C-Pt-4kn" id="Jav-iO-Bgc">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lP7-Jy-hcA" id="fbv-CK-wiG"/>
+                            <outlet property="delegate" destination="lP7-Jy-hcA" id="GFi-Xo-WtK"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PVh-AW-9zm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3149" y="182"/>
+        </scene>
         <!--Login-->
         <scene sceneID="h6O-60-hlR">
             <objects>
@@ -370,7 +419,7 @@
         <scene sceneID="w86-fw-7R9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eqx-Ly-9Ke" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="List" id="SSH-o8-mNB"/>
+                    <tabBarItem key="tabBarItem" title="List" image="list" id="SSH-o8-mNB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="JkW-Kc-LDM">
                         <rect key="frame" x="0.0" y="20" width="320" height="91"/>
@@ -388,5 +437,8 @@
     </scenes>
     <resources>
         <image name="Facebook-logo" width="150" height="150"/>
+        <image name="list" width="26" height="26"/>
+        <image name="locationPin" width="26" height="26"/>
+        <image name="logoutFromProfile" width="24" height="26"/>
     </resources>
 </document>

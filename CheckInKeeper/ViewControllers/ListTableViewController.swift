@@ -16,8 +16,6 @@ class ListTableViewController: UITableViewController {
         super.viewDidLoad()
         createSearchBar()
         
-        // view.backgroundColor = myColor
-        
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
         tableView.refreshControl = refresh
@@ -55,27 +53,27 @@ class ListTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let taggedPlaces = taggedPlaces else { return 0 }
-        return taggedPlaces.count
+        guard let taggedPlaces = taggedPlaces else { return 1 }
+        return taggedPlaces.count > 0 ? taggedPlaces.count : 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseCell", for: indexPath)
-        if let taggedPlaces = taggedPlaces {
+        if let taggedPlaces = taggedPlaces, taggedPlaces.count > 0 {
             cell.textLabel?.text = taggedPlaces[indexPath.row].place.name
             cell.detailTextLabel?.text = taggedPlaces[indexPath.row].created_time?.toCustomPrint()
             return cell
         } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "nothingFoundCell", for: indexPath)
             return cell
         }
     }
     
     //MARK: Table View Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard taggedPlaces != nil else { return }
-        performSegue(withIdentifier: "detailsSegue", sender: self)
-        
         tableView.deselectRow(at: indexPath, animated: true)
+        guard let taggedPlaces = taggedPlaces, taggedPlaces.count > 0 else { return }
+        performSegue(withIdentifier: "detailsSegue", sender: self)
     }
     
     // MARK: - Navigation
@@ -93,16 +91,14 @@ extension ListTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         let firstThreeLettersPlaceNameArray = taggedPlaces?.filter({ (tagedPlace) -> Bool in
-            return tagedPlace.place.name == searchBar.text || tagedPlace.place.name.prefix(3) == searchBar.text?.prefix(3) ||
-                tagedPlace.place.name.prefix(2) == searchBar.text?.prefix(2) || tagedPlace.place.name.prefix(1) == searchBar.text?.prefix(1)
+            guard let searchBarText = searchBar.text else { return false }
+            return tagedPlace.place.name.lowercased().hasPrefix(searchBarText.lowercased())
         })
         taggedPlaces = firstThreeLettersPlaceNameArray
-        // view.backgroundColor = .white
         tableView.reloadData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        // view.backgroundColor = myColor
         searchBar.resignFirstResponder()
         searchBar.text = nil
         getCheckinData()
