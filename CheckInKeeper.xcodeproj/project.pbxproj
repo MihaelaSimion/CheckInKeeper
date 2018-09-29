@@ -22,6 +22,7 @@
 		478D1C38215DF4D800F0784A /* TaggedPlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C37215DF4D800F0784A /* TaggedPlaceModel.swift */; };
 		478D1C3A215DF54D00F0784A /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C39215DF54D00F0784A /* PlaceModel.swift */; };
 		478D1C3C215DF56400F0784A /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C3B215DF56400F0784A /* LocationModel.swift */; };
+		478D1C44215F8C8700F0784A /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C43215F8C8700F0784A /* MainTableViewCell.swift */; };
 		47C51B2221592EE900F13ECE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C51B2121592EE900F13ECE /* MapViewController.swift */; };
 		47C8513F2156B91A00CF7DE2 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C8513E2156B91A00CF7DE2 /* MyTabBarController.swift */; };
 		47F68EF22156A7F100C64FF5 /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F68EF12156A7F100C64FF5 /* LogoutViewController.swift */; };
@@ -49,6 +50,7 @@
 		478D1C37215DF4D800F0784A /* TaggedPlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggedPlaceModel.swift; sourceTree = "<group>"; };
 		478D1C39215DF54D00F0784A /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
 		478D1C3B215DF56400F0784A /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		478D1C43215F8C8700F0784A /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		47C51B2121592EE900F13ECE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		47C8513E2156B91A00CF7DE2 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		47F68EF12156A7F100C64FF5 /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				47212FDC2156512C00FA2DAC /* LoginViewController.swift */,
 				47F68EF12156A7F100C64FF5 /* LogoutViewController.swift */,
 				47212FDE2156512C00FA2DAC /* Main.storyboard */,
+				478D1C43215F8C8700F0784A /* MainTableViewCell.swift */,
 				47C51B2121592EE900F13ECE /* MapViewController.swift */,
 				47C8513E2156B91A00CF7DE2 /* MyTabBarController.swift */,
 			);
@@ -326,6 +329,7 @@
 				478D1C30215D5A7F00F0784A /* DateExtension.swift in Sources */,
 				478D1C2E215D3EFF00F0784A /* DetailsTableViewController.swift in Sources */,
 				478D1C32215D5C2200F0784A /* StringExtension.swift in Sources */,
+				478D1C44215F8C8700F0784A /* MainTableViewCell.swift in Sources */,
 				478D1C2A215CF0CF00F0784A /* ListTableViewController.swift in Sources */,
 				478D1C3A215DF54D00F0784A /* PlaceModel.swift in Sources */,
 				47C51B2221592EE900F13ECE /* MapViewController.swift in Sources */,

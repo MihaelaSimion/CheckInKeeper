@@ -58,20 +58,20 @@ class ListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseCell", for: indexPath)
         if let taggedPlaces = taggedPlaces, taggedPlaces.count > 0 {
-            cell.textLabel?.text = taggedPlaces[indexPath.row].place.name
-            cell.detailTextLabel?.text = taggedPlaces[indexPath.row].created_time?.toCustomPrint()
-            return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "mainReuseCell", for: indexPath) as? MainTableViewCell
+            cell?.configureCell(taggedPlaces[indexPath.row])
+            cell?.selectionStyle = .none
+            return cell ?? UITableViewCell()
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "nothingFoundCell", for: indexPath)
+            cell.selectionStyle = .none
             return cell
         }
     }
     
     //MARK: Table View Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
         guard let taggedPlaces = taggedPlaces, taggedPlaces.count > 0 else { return }
         performSegue(withIdentifier: "detailsSegue", sender: self)
     }
