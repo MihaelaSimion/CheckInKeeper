@@ -60,7 +60,7 @@ class ListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let taggedPlaces = taggedPlaces, taggedPlaces.count > 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "mainReuseCell", for: indexPath) as? MainTableViewCell
-            cell?.configureCell(taggedPlaces[indexPath.row])
+            cell?.configureCell(taggedPlaces[indexPath.row], for: indexPath)
             cell?.selectionStyle = .none
             return cell ?? UITableViewCell()
         } else {
