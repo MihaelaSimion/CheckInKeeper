@@ -23,6 +23,7 @@
 		478D1C3A215DF54D00F0784A /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C39215DF54D00F0784A /* PlaceModel.swift */; };
 		478D1C3C215DF56400F0784A /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C3B215DF56400F0784A /* LocationModel.swift */; };
 		478D1C44215F8C8700F0784A /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C43215F8C8700F0784A /* MainTableViewCell.swift */; };
+		478D1C462160BE2700F0784A /* NothingFoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C452160BE2700F0784A /* NothingFoundTableViewCell.swift */; };
 		47C51B2221592EE900F13ECE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C51B2121592EE900F13ECE /* MapViewController.swift */; };
 		47C8513F2156B91A00CF7DE2 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C8513E2156B91A00CF7DE2 /* MyTabBarController.swift */; };
 		47F68EF22156A7F100C64FF5 /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F68EF12156A7F100C64FF5 /* LogoutViewController.swift */; };
@@ -51,6 +52,7 @@
 		478D1C39215DF54D00F0784A /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
 		478D1C3B215DF56400F0784A /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		478D1C43215F8C8700F0784A /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		478D1C452160BE2700F0784A /* NothingFoundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NothingFoundTableViewCell.swift; sourceTree = "<group>"; };
 		47C51B2121592EE900F13ECE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		47C8513E2156B91A00CF7DE2 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		47F68EF12156A7F100C64FF5 /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				47F68EF12156A7F100C64FF5 /* LogoutViewController.swift */,
 				47212FDE2156512C00FA2DAC /* Main.storyboard */,
 				478D1C43215F8C8700F0784A /* MainTableViewCell.swift */,
+				478D1C452160BE2700F0784A /* NothingFoundTableViewCell.swift */,
 				47C51B2121592EE900F13ECE /* MapViewController.swift */,
 				47C8513E2156B91A00CF7DE2 /* MyTabBarController.swift */,
 			);
@@ -335,6 +338,7 @@
 				47C51B2221592EE900F13ECE /* MapViewController.swift in Sources */,
 				478D1C3C215DF56400F0784A /* LocationModel.swift in Sources */,
 				47212FDB2156512C00FA2DAC /* AppDelegate.swift in Sources */,
+				478D1C462160BE2700F0784A /* NothingFoundTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

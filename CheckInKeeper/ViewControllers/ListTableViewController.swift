@@ -64,9 +64,10 @@ class ListTableViewController: UITableViewController {
             cell?.selectionStyle = .none
             return cell ?? UITableViewCell()
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "nothingFoundCell", for: indexPath)
-            cell.selectionStyle = .none
-            return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "nothingFoundCell", for: indexPath) as? NothingFoundTableViewCell
+            cell?.configureNothingFoundCell()
+            cell?.selectionStyle = .none
+            return cell ?? UITableViewCell()
         }
     }
     

@@ -18,8 +18,13 @@ class MainTableViewCell: UITableViewCell {
     
     func configureCell(_ taggedPlace: TaggedPlace, for index: IndexPath) {
         cellView.layer.cornerRadius = 4
+        cellView.layer.shadowColor = UIColor.black.cgColor
+        cellView.layer.shadowOpacity = 0.5
+        cellView.layer.shadowOffset = CGSize.zero
+        cellView.layer.shadowRadius = 5
         viewWithNumber.layer.cornerRadius = 16
         numberLabel.text = "\(index.row + 1)"
+        numberLabel.textColor = .white
         placeNameLabel.text = taggedPlace.place.name
         dateLabel.text = taggedPlace.created_time?.toCustomPrint()
     }
