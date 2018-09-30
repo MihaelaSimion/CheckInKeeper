@@ -11,59 +11,30 @@ import GoogleMaps
 
 class DetailsTableViewController: UITableViewController {
     var taggedPlace: TaggedPlace?
-    
-    @IBOutlet weak var placeNameLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var cityLabel: UILabel!
-    @IBOutlet weak var countryLabel: UILabel!
-    @IBOutlet weak var streetLabel: UILabel!
-    @IBOutlet weak var latitudeLabel: UILabel!
-    @IBOutlet weak var longitudeLabel: UILabel!
-    @IBOutlet weak var mapView: GMSMapView!
+    var cellConfiguration: [CellDetailType] = [.name, .date, .city, .country, .street, .latitude, .longitude]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Check-in details:"
-        
-        mapView.layer.cornerRadius = 4
-        let coordinates = getCoordinates()
-        let defaultCamera = GMSCameraPosition(target: CLLocationCoordinate2D(latitude: coordinates.latitude, longitude: coordinates.longitude), zoom: 14.0, bearing: 0.0, viewingAngle: 0.0)
-        mapView.camera = defaultCamera
-        mapView.isMyLocationEnabled = true
-        mapView.settings.rotateGestures = false
-        mapView.settings.scrollGestures = false
-        mapView.settings.tiltGestures = false
-    
-        addMarker()
-        
-        guard let taggedPlace = taggedPlace else { return }
-        placeNameLabel.text = taggedPlace.place.name
-        dateLabel.text = taggedPlace.created_time?.toCustomPrint()
-        cityLabel.text = taggedPlace.place.location.city
-        countryLabel.text = taggedPlace.place.location.country
-        streetLabel.text = taggedPlace.place.location.street
-        latitudeLabel.text = String(format: "%.8f", taggedPlace.place.location.latitude)
-        longitudeLabel.text = String(format: "%.8f", taggedPlace.place.location.longitude)
     }
     
-    func addMarker() {
-        let coordinates = getCoordinates()
-        let position = CLLocationCoordinate2D(latitude: coordinates.latitude, longitude: coordinates.longitude)
-        let marker = GMSMarker(position: position)
-        marker.title = taggedPlace?.place.name ?? "Check-in"
-        marker.icon = GMSMarker.markerImage(with: .green)
-        marker.map = mapView
+    //MARK: Table view data source:
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cellConfiguration.count + 1
     }
     
-    func getCoordinates() -> CLLocationCoordinate2D {
-        let latitude = taggedPlace?.place.location.latitude ?? 45.9432
-        let longitude = taggedPlace?.place.location.longitude ?? 24.9668
-        
-        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-    }
-    
-    //MARK: Table View delegate method:
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let taggedPlace = taggedPlace else { return UITableViewCell() }
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "mapViewCell", for: indexPath) as? MapTableViewCell
+            cell?.configureCell(taggedPlace: taggedPlace)
+            cell?.selectionStyle = .none
+            return cell ?? UITableViewCell()
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "detailsCell", for: indexPath) as? DetailTableViewCell
+            cell?.configureDetailCell(taggedPlace: taggedPlace, cellDetailType: cellConfiguration[indexPath.row - 1])
+            cell?.selectionStyle = .none
+            return cell ?? UITableViewCell()
+        }
     }
 }

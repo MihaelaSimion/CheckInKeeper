@@ -24,6 +24,8 @@
 		478D1C3C215DF56400F0784A /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C3B215DF56400F0784A /* LocationModel.swift */; };
 		478D1C44215F8C8700F0784A /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C43215F8C8700F0784A /* MainTableViewCell.swift */; };
 		478D1C462160BE2700F0784A /* NothingFoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C452160BE2700F0784A /* NothingFoundTableViewCell.swift */; };
+		478D1C492161093600F0784A /* MapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C482161093600F0784A /* MapTableViewCell.swift */; };
+		478D1C4B2161095500F0784A /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C4A2161095500F0784A /* DetailTableViewCell.swift */; };
 		47C51B2221592EE900F13ECE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C51B2121592EE900F13ECE /* MapViewController.swift */; };
 		47C8513F2156B91A00CF7DE2 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C8513E2156B91A00CF7DE2 /* MyTabBarController.swift */; };
 		47F68EF22156A7F100C64FF5 /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F68EF12156A7F100C64FF5 /* LogoutViewController.swift */; };
@@ -53,6 +55,8 @@
 		478D1C3B215DF56400F0784A /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		478D1C43215F8C8700F0784A /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		478D1C452160BE2700F0784A /* NothingFoundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NothingFoundTableViewCell.swift; sourceTree = "<group>"; };
+		478D1C482161093600F0784A /* MapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableViewCell.swift; sourceTree = "<group>"; };
+		478D1C4A2161095500F0784A /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		47C51B2121592EE900F13ECE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		47C8513E2156B91A00CF7DE2 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		47F68EF12156A7F100C64FF5 /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +97,7 @@
 			children = (
 				47212FDA2156512C00FA2DAC /* AppDelegate.swift */,
 				47212FE62156512D00FA2DAC /* Info.plist */,
+				478D1C472161090000F0784A /* Cells */,
 				478D1C34215D60E600F0784A /* ViewControllers */,
 				478D1C33215D60A400F0784A /* Models */,
 				478D1C36215D613000F0784A /* Helpers */,
@@ -121,8 +126,6 @@
 				47212FDC2156512C00FA2DAC /* LoginViewController.swift */,
 				47F68EF12156A7F100C64FF5 /* LogoutViewController.swift */,
 				47212FDE2156512C00FA2DAC /* Main.storyboard */,
-				478D1C43215F8C8700F0784A /* MainTableViewCell.swift */,
-				478D1C452160BE2700F0784A /* NothingFoundTableViewCell.swift */,
 				47C51B2121592EE900F13ECE /* MapViewController.swift */,
 				47C8513E2156B91A00CF7DE2 /* MyTabBarController.swift */,
 			);
@@ -146,6 +149,17 @@
 				478D1C31215D5C2200F0784A /* StringExtension.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		478D1C472161090000F0784A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				478D1C43215F8C8700F0784A /* MainTableViewCell.swift */,
+				478D1C452160BE2700F0784A /* NothingFoundTableViewCell.swift */,
+				478D1C482161093600F0784A /* MapTableViewCell.swift */,
+				478D1C4A2161095500F0784A /* DetailTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		8E271CC4EB8A149E087B0122 /* Frameworks */ = {
@@ -324,6 +338,7 @@
 			files = (
 				47212FDD2156512C00FA2DAC /* LoginViewController.swift in Sources */,
 				478D1C24215A46AD00F0784A /* TaggedPlacesResponseModel.swift in Sources */,
+				478D1C492161093600F0784A /* MapTableViewCell.swift in Sources */,
 				478D1C28215BB6C300F0784A /* NotificationExtension.swift in Sources */,
 				47C8513F2156B91A00CF7DE2 /* MyTabBarController.swift in Sources */,
 				478D1C26215A5EE500F0784A /* MyProfileRequest.swift in Sources */,
@@ -339,6 +354,7 @@
 				478D1C3C215DF56400F0784A /* LocationModel.swift in Sources */,
 				47212FDB2156512C00FA2DAC /* AppDelegate.swift in Sources */,
 				478D1C462160BE2700F0784A /* NothingFoundTableViewCell.swift in Sources */,
+				478D1C4B2161095500F0784A /* DetailTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
