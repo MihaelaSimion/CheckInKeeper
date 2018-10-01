@@ -61,10 +61,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yI9-hN-4eD">
-                                <rect key="frame" x="125" y="454" width="70" height="45"/>
+                                <rect key="frame" x="66" y="446" width="188" height="53"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnL-wW-wqB">
-                                        <rect key="frame" x="6" y="6" width="58" height="33"/>
+                                        <rect key="frame" x="65" y="10" width="58" height="33"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <state key="normal" title="Logout">
@@ -75,16 +75,16 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.70131456906392686" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.9882352941176471" green="0.51372549019607838" blue="0.11764705882352941" alpha="0.9005511558219178" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="tnL-wW-wqB" secondAttribute="bottom" constant="6" id="ANS-qJ-9tH"/>
-                                    <constraint firstAttribute="trailing" secondItem="tnL-wW-wqB" secondAttribute="trailing" constant="6" id="IIb-FZ-3b6"/>
-                                    <constraint firstItem="tnL-wW-wqB" firstAttribute="leading" secondItem="yI9-hN-4eD" secondAttribute="leading" constant="6" id="SJ2-lt-dPc"/>
-                                    <constraint firstItem="tnL-wW-wqB" firstAttribute="top" secondItem="yI9-hN-4eD" secondAttribute="top" constant="6" id="wip-dv-e4u"/>
+                                    <constraint firstAttribute="bottom" secondItem="tnL-wW-wqB" secondAttribute="bottom" constant="10" id="ANS-qJ-9tH"/>
+                                    <constraint firstAttribute="trailing" secondItem="tnL-wW-wqB" secondAttribute="trailing" constant="65" id="IIb-FZ-3b6"/>
+                                    <constraint firstItem="tnL-wW-wqB" firstAttribute="leading" secondItem="yI9-hN-4eD" secondAttribute="leading" constant="65" id="SJ2-lt-dPc"/>
+                                    <constraint firstItem="tnL-wW-wqB" firstAttribute="top" secondItem="yI9-hN-4eD" secondAttribute="top" constant="10" id="wip-dv-e4u"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.19215686274509802" green="0.67843137254901964" blue="0.84313725490196079" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.65490196078431373" blue="0.63529411764705879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Une-0b-7e0" firstAttribute="bottom" secondItem="yI9-hN-4eD" secondAttribute="bottom" constant="20" id="Cka-RG-Nvi"/>
                             <constraint firstItem="Qw0-pq-0uj" firstAttribute="centerX" secondItem="93I-C4-VNi" secondAttribute="centerX" id="Hwj-Hd-Ogn"/>
@@ -110,7 +110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Icz-50-kMN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-600" y="920.07042253521126"/>
+            <point key="canvasLocation" x="-463" y="811"/>
         </scene>
         <!--My Tab Bar Controller-->
         <scene sceneID="dCY-8f-aJ7">
@@ -172,7 +172,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dnP-V3-a38">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.19309182359999999" green="0.67966074489999995" blue="0.84289383559999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.65490196078431373" blue="0.63529411764705879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                         <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
                         <prototypes>
@@ -213,7 +213,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.19215686274509802" green="0.67843137254901964" blue="0.84313725490196079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.65490196078431373" blue="0.63529411764705879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="QlS-OH-qhQ" firstAttribute="centerX" secondItem="tIC-cd-6vs" secondAttribute="centerX" id="4ov-Rg-q8L"/>
                                                         <constraint firstAttribute="width" constant="32" id="B1k-47-Skb"/>
@@ -349,7 +349,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="lXT-2n-WGZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.19309182359999999" green="0.67966074489999995" blue="0.84289383559999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.65490196078431373" blue="0.63529411764705879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mapViewCell" id="X7J-Q1-aS8" customClass="MapTableViewCell" customModule="CheckInKeeper" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
@@ -451,35 +451,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ki-BL-TYz">
-                                <rect key="frame" x="70" y="269" width="180" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3D-R4-Dpn">
+                                <rect key="frame" x="66" y="257.5" width="188" height="53"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ki-BL-TYz">
+                                        <rect key="frame" x="10" y="10" width="168" height="33"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <state key="normal" title="Login with Facebook"/>
+                                        <connections>
+                                            <action selector="loginButtonPressed:" destination="4Wm-Hs-xDj" eventType="touchUpInside" id="c0t-uI-PR8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.9882352941176471" green="0.51372549019607838" blue="0.11764705882352941" alpha="0.90499678938356176" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="cTd-cd-7Ll"/>
+                                    <constraint firstAttribute="trailing" secondItem="7ki-BL-TYz" secondAttribute="trailing" constant="10" id="3sc-V5-ud4"/>
+                                    <constraint firstItem="7ki-BL-TYz" firstAttribute="leading" secondItem="q3D-R4-Dpn" secondAttribute="leading" constant="10" id="lFH-wJ-FoR"/>
+                                    <constraint firstAttribute="bottom" secondItem="7ki-BL-TYz" secondAttribute="bottom" constant="10" id="pP3-Cl-oBu"/>
+                                    <constraint firstItem="7ki-BL-TYz" firstAttribute="top" secondItem="q3D-R4-Dpn" secondAttribute="top" constant="10" id="rzY-Ws-Mpo"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="Login with Facebook"/>
-                                <connections>
-                                    <action selector="loginButtonPressed:" destination="4Wm-Hs-xDj" eventType="touchUpInside" id="c0t-uI-PR8"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.19309182363013702" green="0.67966074486301364" blue="0.84289383561643838" alpha="0.89918664383561642" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.65490196078431373" blue="0.63529411764705879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
-                            <constraint firstItem="7ki-BL-TYz" firstAttribute="centerY" secondItem="4k4-8S-rK8" secondAttribute="centerY" id="E0W-Rg-pNz"/>
-                            <constraint firstItem="7ki-BL-TYz" firstAttribute="leading" secondItem="J3B-as-AxO" secondAttribute="leading" constant="70" id="S8c-GD-ziM"/>
-                            <constraint firstItem="J3B-as-AxO" firstAttribute="trailing" secondItem="7ki-BL-TYz" secondAttribute="trailing" constant="70" id="pjS-8H-2Yb"/>
-                            <constraint firstItem="7ki-BL-TYz" firstAttribute="centerX" secondItem="4k4-8S-rK8" secondAttribute="centerX" id="vsa-Qx-Psg"/>
+                            <constraint firstItem="q3D-R4-Dpn" firstAttribute="centerY" secondItem="4k4-8S-rK8" secondAttribute="centerY" id="0Yb-nC-Vfl"/>
+                            <constraint firstItem="q3D-R4-Dpn" firstAttribute="centerX" secondItem="4k4-8S-rK8" secondAttribute="centerX" id="YEz-Nh-PXY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="J3B-as-AxO"/>
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="7ki-BL-TYz" id="Xvy-z6-3C5"/>
+                        <outlet property="loginView" destination="q3D-R4-Dpn" id="WUM-zJ-UCx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="udB-iM-sS6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1314" y="16"/>
+            <point key="canvasLocation" x="-1314.375" y="15.845070422535212"/>
         </scene>
         <!--List-->
         <scene sceneID="w86-fw-7R9">
@@ -509,6 +518,6 @@
         <image name="logoutFromProfile" width="24" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sv6-ot-X9q"/>
+        <segue reference="5Gp-Xg-exV"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -16,7 +16,14 @@ protocol LoginProtocol {
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var loginView: UIView!
+    
     var delegate: LoginProtocol?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        loginView.layer.cornerRadius = 10
+    }
  
     @IBAction func loginButtonPressed(_ sender: Any) {
         let loginManager = LoginManager()

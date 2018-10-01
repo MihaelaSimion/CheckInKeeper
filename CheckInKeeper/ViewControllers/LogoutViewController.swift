@@ -30,7 +30,7 @@ class LogoutViewController: UIViewController {
         super.viewDidLoad()
         userNameView.layer.cornerRadius = 4
         userIDView.layer.cornerRadius = 4
-        logoutButton.layer.cornerRadius = 17
+        logoutButton.layer.cornerRadius = 10
         
         if let controller = tabBarController as? MyTabBarController {
             guard let id = controller.userID, let name = controller.userName, let image = controller.profilePicture else { return }
