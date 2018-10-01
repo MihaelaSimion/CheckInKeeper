@@ -96,12 +96,12 @@
 			isa = PBXGroup;
 			children = (
 				47212FDA2156512C00FA2DAC /* AppDelegate.swift */,
-				47212FE62156512D00FA2DAC /* Info.plist */,
 				478D1C472161090000F0784A /* Cells */,
-				478D1C34215D60E600F0784A /* ViewControllers */,
-				478D1C33215D60A400F0784A /* Models */,
 				478D1C36215D613000F0784A /* Helpers */,
+				47212FE62156512D00FA2DAC /* Info.plist */,
+				478D1C33215D60A400F0784A /* Models */,
 				478D1C35215D611A00F0784A /* Resources */,
+				478D1C34215D60E600F0784A /* ViewControllers */,
 			);
 			path = CheckInKeeper;
 			sourceTree = "<group>";

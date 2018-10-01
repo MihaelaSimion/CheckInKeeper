@@ -12,7 +12,8 @@ import GoogleMaps
 class MapViewController: UIViewController {
     let locationManager = CLLocationManager()
     @IBOutlet weak var mapView: GMSMapView!
-    var places: [Place]?
+    var taggedPlaces: [TaggedPlace]?
+    var taggedPlace: TaggedPlace?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,30 +25,42 @@ class MapViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
     }
     
-    func addMarkers(places: [Place]) {
-        for place in places {
-            let position = CLLocationCoordinate2D(latitude: place.location.latitude, longitude: place.location.longitude)
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    func addMarkers(taggedPlaces: [TaggedPlace]) {
+        for taggedPlace in taggedPlaces {
+            let position = CLLocationCoordinate2D(latitude: taggedPlace.place.location.latitude, longitude: taggedPlace.place.location.longitude)
             let marker = GMSMarker(position: position)
-            marker.title = place.name
+            marker.title = taggedPlace.place.name
+            marker.snippet = "\(taggedPlace.place.location.city), \(taggedPlace.place.location.country)\n\(taggedPlace.place.location.street)"
             marker.icon = GMSMarker.markerImage(with: .green)
             marker.map = mapView
+            marker.userData = taggedPlace
         }
     }
     
     @objc func getTaggedPlaceValues() {
         if let tabController = tabBarController as? MyTabBarController {
-            if let placesData = tabController.taggedPlaceResponse?.data.map({ (element) -> Place in
-                return element.place
-            }) {
-                places = placesData
-                guard let placesForMarkers = places else { return }
-                addMarkers(places: placesForMarkers)
+            if let taggedPlaces = tabController.taggedPlaceResponse?.data {
+                self.taggedPlaces = taggedPlaces
+                addMarkers(taggedPlaces: taggedPlaces)
             }
         }
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: .taggedPlaceResponseChanged, object: nil)
+    }
+    
+    //MARK: Navigation:
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "markerInfoWindowToDetails" {
+            guard let controller = segue.destination as? DetailsTableViewController else { return }
+            guard let taggedPlace = taggedPlace else { return }
+            controller.taggedPlace = taggedPlace
+        }
     }
 }
 
@@ -69,9 +82,14 @@ extension MapViewController: CLLocationManagerDelegate {
         let camera = GMSCameraPosition(target: currentLocation.coordinate, zoom: 12.0, bearing: 0.0, viewingAngle: 0.0)
         mapView.animate(to: camera)
     }
-    
 }
 
 extension MapViewController: GMSMapViewDelegate {
-    // You can listen to events that occur on the map, such as when a user taps a marker or an info window
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        if let taggedPlace = marker.userData as? TaggedPlace {
+            self.taggedPlace = taggedPlace
+        }
+        performSegue(withIdentifier: "markerInfoWindowToDetails", sender: self)
+        navigationController?.navigationBar.isHidden = false
+    }
 }
