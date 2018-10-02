@@ -32,7 +32,6 @@ class MapTableViewCell: UITableViewCell {
         let position = CLLocationCoordinate2D(latitude: coordinates.latitude, longitude: coordinates.longitude)
         let marker = GMSMarker(position: position)
         marker.title = taggedPlace?.place.name ?? "Check-in"
-        marker.icon = GMSMarker.markerImage(with: .green)
         marker.map = mapView
     }
     

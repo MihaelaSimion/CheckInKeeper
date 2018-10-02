@@ -13,6 +13,7 @@
 		47212FE22156512D00FA2DAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47212FE12156512D00FA2DAC /* Assets.xcassets */; };
 		47212FE52156512D00FA2DAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47212FE32156512D00FA2DAC /* LaunchScreen.storyboard */; };
 		474D23B22163EF5200AE3953 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474D23B12163EF5200AE3953 /* Constants.swift */; };
+		474D23B4216400AC00AE3953 /* GoogleMapsStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = 474D23B3216400AC00AE3953 /* GoogleMapsStyle.json */; };
 		478D1C24215A46AD00F0784A /* TaggedPlacesResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C23215A46AD00F0784A /* TaggedPlacesResponseModel.swift */; };
 		478D1C26215A5EE500F0784A /* MyProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C25215A5EE500F0784A /* MyProfileRequest.swift */; };
 		478D1C28215BB6C300F0784A /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C27215BB6C300F0784A /* NotificationExtension.swift */; };
@@ -45,6 +46,7 @@
 		47212FE42156512D00FA2DAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47212FE62156512D00FA2DAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		474D23B12163EF5200AE3953 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		474D23B3216400AC00AE3953 /* GoogleMapsStyle.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GoogleMapsStyle.json; sourceTree = "<group>"; };
 		478D1C23215A46AD00F0784A /* TaggedPlacesResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggedPlacesResponseModel.swift; sourceTree = "<group>"; };
 		478D1C25215A5EE500F0784A /* MyProfileRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileRequest.swift; sourceTree = "<group>"; };
 		478D1C27215BB6C300F0784A /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				47212FE12156512D00FA2DAC /* Assets.xcassets */,
 				47212FE32156512D00FA2DAC /* LaunchScreen.storyboard */,
 				474D23B12163EF5200AE3953 /* Constants.swift */,
+				474D23B3216400AC00AE3953 /* GoogleMapsStyle.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			files = (
 				47212FE52156512D00FA2DAC /* LaunchScreen.storyboard in Resources */,
 				47212FE22156512D00FA2DAC /* Assets.xcassets in Resources */,
+				474D23B4216400AC00AE3953 /* GoogleMapsStyle.json in Resources */,
 				47212FE02156512C00FA2DAC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

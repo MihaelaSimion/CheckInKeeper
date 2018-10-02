@@ -21,13 +21,25 @@ class MapViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(getTaggedPlaceValues), name: .taggedPlaceResponseChanged, object: nil)
         locationManager.delegate = self
         mapView.delegate = self
-        let defaultCamera = GMSCameraPosition(target: CLLocationCoordinate2D(latitude: 45.9432, longitude: 24.9668), zoom: 7.0, bearing: 0.0, viewingAngle: 0.0)
-        mapView.camera = defaultCamera
         locationManager.requestWhenInUseAuthorization()
+        loadMap()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
+    }
+    
+    func loadMap() {
+        do {
+            if let styleURL = Bundle.main.url(forResource: "GoogleMapsStyle", withExtension: "json") {
+                mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+            }
+        } catch {
+            NSLog("One or more of the map styles failed to load. \(error)")
+        }
+        
+        let defaultCamera = GMSCameraPosition(target: CLLocationCoordinate2D(latitude: 45.9432, longitude: 24.9668), zoom: 7.0, bearing: 0.0, viewingAngle: 0.0)
+        mapView.camera = defaultCamera
     }
     
     func addMarkers(taggedPlaces: [TaggedPlace]) {
@@ -36,7 +48,6 @@ class MapViewController: UIViewController {
             let marker = GMSMarker(position: position)
             marker.title = taggedPlace.place.name
             marker.snippet = "\(taggedPlace.place.location.city), \(taggedPlace.place.location.country)\n\(taggedPlace.place.location.street)"
-            marker.icon = GMSMarker.markerImage(with: .green)
             marker.map = mapView
             marker.userData = taggedPlace
         }
