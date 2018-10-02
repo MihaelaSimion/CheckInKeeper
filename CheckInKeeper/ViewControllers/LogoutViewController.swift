@@ -14,8 +14,7 @@ class LogoutViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userIDLabel: UILabel!
-    @IBOutlet weak var userNameView: UIView!
-    @IBOutlet weak var userIDView: UIView!
+    @IBOutlet weak var profileDataView: UIView!
     @IBOutlet weak var logoutButton: UIView!
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
@@ -28,8 +27,7 @@ class LogoutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userNameView.layer.cornerRadius = 4
-        userIDView.layer.cornerRadius = 4
+        profileDataView.layer.cornerRadius = 4
         logoutButton.layer.cornerRadius = 10
         
         if let controller = tabBarController as? MyTabBarController {
