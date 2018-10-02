@@ -12,6 +12,7 @@ import GoogleMaps
 class MapViewController: UIViewController {
     let locationManager = CLLocationManager()
     @IBOutlet weak var mapView: GMSMapView!
+    
     var taggedPlaces: [TaggedPlace]?
     var taggedPlace: TaggedPlace?
     
@@ -85,10 +86,15 @@ extension MapViewController: CLLocationManagerDelegate {
 }
 
 extension MapViewController: GMSMapViewDelegate {
-    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+    
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         if let taggedPlace = marker.userData as? TaggedPlace {
             self.taggedPlace = taggedPlace
         }
+        return false
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         performSegue(withIdentifier: "markerInfoWindowToDetails", sender: self)
         navigationController?.navigationBar.isHidden = false
     }
