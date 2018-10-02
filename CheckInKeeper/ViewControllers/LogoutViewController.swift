@@ -29,12 +29,20 @@ class LogoutViewController: UIViewController {
         super.viewDidLoad()
         profileDataView.layer.cornerRadius = 4
         logoutButton.layer.cornerRadius = 10
-        
+        getNameAndId()
+        NotificationCenter.default.addObserver(self, selector: #selector(getNameAndId), name: .nameAndIdChanged, object: nil)
+    }
+    
+    @objc func getNameAndId() {
         if let controller = tabBarController as? MyTabBarController {
             guard let id = controller.userID, let name = controller.userName, let image = controller.profilePicture else { return }
             userNameLabel.text = name
             userIDLabel.text = "Digital ID: \(id)"
             imageView.image = image
         }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .nameAndIdChanged, object: nil)
     }
 }

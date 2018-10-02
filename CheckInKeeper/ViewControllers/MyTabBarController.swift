@@ -39,6 +39,7 @@ class MyTabBarController: UITabBarController {
                     self.getCheckinList(for: userID)
                     self.getProfilePicture(for: userID)
                 }
+                NotificationCenter.default.post(name: .nameAndIdChanged, object: nil)
             case .failed(let error):
                 print("Graph Request Failed: \(error)")
             }

@@ -10,4 +10,5 @@ import Foundation
 
 extension Notification.Name {
     static let taggedPlaceResponseChanged = Notification.Name("taggedPlaceResponseChanged")
+    static let nameAndIdChanged = Notification.Name("nameAndIdChanged")
 }

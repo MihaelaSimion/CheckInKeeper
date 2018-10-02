@@ -85,6 +85,10 @@ class ListTableViewController: UITableViewController {
             controller.taggedPlace = taggedPlaces[index]
         }
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .taggedPlaceResponseChanged, object: nil)
+    }
 }
 
 //MARK: Search Bar Delegate:
