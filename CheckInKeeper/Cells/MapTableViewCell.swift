@@ -16,7 +16,26 @@ class MapTableViewCell: UITableViewCell {
     func configureCell(taggedPlace: TaggedPlace) {
         mapView.layer.cornerRadius = 4
         self.taggedPlace = taggedPlace
-        
+        loadMap()
+        addMarker()
+    }
+    
+    func addMarker() {
+        let coordinates = getCoordinates()
+        let position = CLLocationCoordinate2D(latitude: coordinates.latitude, longitude: coordinates.longitude)
+        let marker = GMSMarker(position: position)
+        marker.title = taggedPlace?.place.name ?? "Check-in"
+        marker.map = mapView
+    }
+    
+    func loadMap() {
+        do {
+            if let styleURL = Bundle.main.url(forResource: "GoogleMapsStyle", withExtension: "json") {
+                mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+            }
+        } catch {
+            NSLog("One or more of the map styles failed to load. \(error)")
+        }
         let coordinates = getCoordinates()
         let defaultCamera = GMSCameraPosition(target: CLLocationCoordinate2D(latitude: coordinates.latitude, longitude: coordinates.longitude), zoom: 14.0, bearing: 0.0, viewingAngle: 0.0)
         mapView.camera = defaultCamera
@@ -24,15 +43,6 @@ class MapTableViewCell: UITableViewCell {
         mapView.settings.rotateGestures = false
         mapView.settings.scrollGestures = false
         mapView.settings.tiltGestures = false
-        addMarker()
-    }
-   
-    func addMarker() {
-        let coordinates = getCoordinates()
-        let position = CLLocationCoordinate2D(latitude: coordinates.latitude, longitude: coordinates.longitude)
-        let marker = GMSMarker(position: position)
-        marker.title = taggedPlace?.place.name ?? "Check-in"
-        marker.map = mapView
     }
     
     func getCoordinates() -> CLLocationCoordinate2D {
