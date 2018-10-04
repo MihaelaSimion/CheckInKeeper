@@ -14,8 +14,8 @@ class LogoutViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userIDLabel: UILabel!
-    @IBOutlet weak var profileDataView: UIView!
-    @IBOutlet weak var logoutButton: UIView!
+    @IBOutlet weak var logoutButtonView: UIView!
+    @IBOutlet weak var logoutButton: UIButton!
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
         let loginManager = LoginManager()
@@ -27,8 +27,12 @@ class LogoutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profileDataView.layer.cornerRadius = 4
-        logoutButton.layer.cornerRadius = 10
+        
+        logoutButtonView.layer.cornerRadius = 10
+        imageView.layer.cornerRadius = imageView.frame.size.width / 2
+        imageView.clipsToBounds = true
+        logoutButton.showsTouchWhenHighlighted = true
+        
         getNameAndId()
         NotificationCenter.default.addObserver(self, selector: #selector(getNameAndId), name: .nameAndIdChanged, object: nil)
     }
@@ -37,7 +41,7 @@ class LogoutViewController: UIViewController {
         if let controller = tabBarController as? MyTabBarController {
             guard let id = controller.userID, let name = controller.userName, let image = controller.profilePicture else { return }
             userNameLabel.text = name
-            userIDLabel.text = "Digital ID: \(id)"
+            userIDLabel.text = "Your Facebook User ID:\n\(id)"
             imageView.image = image
         }
     }

@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loginView.layer.cornerRadius = 10
+        loginButton.showsTouchWhenHighlighted = true
     }
  
     @IBAction func loginButtonPressed(_ sender: Any) {
