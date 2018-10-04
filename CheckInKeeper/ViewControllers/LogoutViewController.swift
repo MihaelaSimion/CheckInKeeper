@@ -13,9 +13,9 @@ import FacebookLogin
 class LogoutViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var userIDLabel: UILabel!
     @IBOutlet weak var logoutButtonView: UIView!
     @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var idTextView: UITextView!
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
         let loginManager = LoginManager()
@@ -32,6 +32,8 @@ class LogoutViewController: UIViewController {
         imageView.layer.cornerRadius = imageView.frame.size.width / 2
         imageView.clipsToBounds = true
         logoutButton.showsTouchWhenHighlighted = true
+        idTextView.isEditable = false
+        idTextView.isSelectable = true
         
         getNameAndId()
         NotificationCenter.default.addObserver(self, selector: #selector(getNameAndId), name: .nameAndIdChanged, object: nil)
@@ -41,7 +43,7 @@ class LogoutViewController: UIViewController {
         if let controller = tabBarController as? MyTabBarController {
             guard let id = controller.userID, let name = controller.userName, let image = controller.profilePicture else { return }
             userNameLabel.text = name
-            userIDLabel.text = "Your Facebook User ID:\n\(id)"
+            idTextView.text = id
             imageView.image = image
         }
     }
