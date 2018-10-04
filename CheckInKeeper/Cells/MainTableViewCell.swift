@@ -15,6 +15,7 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var viewWithNumber: UIView!
     @IBOutlet weak var numberLabel: UILabel!
+    @IBOutlet weak var detailView: UIView!
     
     func configureCell(_ taggedPlace: TaggedPlace, for index: IndexPath) {
         cellView.layer.cornerRadius = 4
@@ -27,5 +28,6 @@ class MainTableViewCell: UITableViewCell {
         numberLabel.textColor = .white
         placeNameLabel.text = taggedPlace.place.name
         dateLabel.text = taggedPlace.created_time?.toCustomPrint()
+        detailView.layer.cornerRadius = 2
     }
 }

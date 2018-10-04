@@ -220,7 +220,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
                                                         </imageView>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.94038629531860352" green="0.96456450223922729" blue="0.98118096590042114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.2627450980392157" green="0.62745098039215685" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="32" id="3XB-7k-XB4"/>
                                                         <constraint firstAttribute="trailing" secondItem="v7Q-NC-c8B" secondAttribute="trailing" id="FVS-ZB-fhC"/>
@@ -256,6 +256,7 @@
                                 <connections>
                                     <outlet property="cellView" destination="GhW-2J-HFd" id="nOl-IR-wof"/>
                                     <outlet property="dateLabel" destination="lVB-ut-QoZ" id="pE1-JQ-D2f"/>
+                                    <outlet property="detailView" destination="FU0-Jg-USU" id="qFi-th-O8g"/>
                                     <outlet property="numberLabel" destination="QlS-OH-qhQ" id="A96-3O-a0m"/>
                                     <outlet property="placeNameLabel" destination="ob0-Gm-8Wn" id="HRy-Bp-8Ym"/>
                                     <outlet property="viewWithNumber" destination="tIC-cd-6vs" id="Mio-7M-UFG"/>
@@ -510,6 +511,6 @@
         <image name="logoutFromProfile" width="24" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sv6-ot-X9q"/>
+        <segue reference="5Gp-Xg-exV"/>
     </inferredMetricsTieBreakers>
 </document>

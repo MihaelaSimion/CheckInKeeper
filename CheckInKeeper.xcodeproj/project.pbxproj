@@ -14,6 +14,8 @@
 		47212FE52156512D00FA2DAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47212FE32156512D00FA2DAC /* LaunchScreen.storyboard */; };
 		474D23B22163EF5200AE3953 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474D23B12163EF5200AE3953 /* Constants.swift */; };
 		474D23B4216400AC00AE3953 /* GoogleMapsStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = 474D23B3216400AC00AE3953 /* GoogleMapsStyle.json */; };
+		474D23B62164A9BC00AE3953 /* MapMarkerWindowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 474D23B52164A9BC00AE3953 /* MapMarkerWindowView.xib */; };
+		474D23BA2164B34600AE3953 /* InfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474D23B92164B34600AE3953 /* InfoWindow.swift */; };
 		478D1C24215A46AD00F0784A /* TaggedPlacesResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C23215A46AD00F0784A /* TaggedPlacesResponseModel.swift */; };
 		478D1C26215A5EE500F0784A /* MyProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C25215A5EE500F0784A /* MyProfileRequest.swift */; };
 		478D1C28215BB6C300F0784A /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C27215BB6C300F0784A /* NotificationExtension.swift */; };
@@ -47,6 +49,8 @@
 		47212FE62156512D00FA2DAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		474D23B12163EF5200AE3953 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		474D23B3216400AC00AE3953 /* GoogleMapsStyle.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GoogleMapsStyle.json; sourceTree = "<group>"; };
+		474D23B52164A9BC00AE3953 /* MapMarkerWindowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapMarkerWindowView.xib; sourceTree = "<group>"; };
+		474D23B92164B34600AE3953 /* InfoWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoWindow.swift; sourceTree = "<group>"; };
 		478D1C23215A46AD00F0784A /* TaggedPlacesResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggedPlacesResponseModel.swift; sourceTree = "<group>"; };
 		478D1C25215A5EE500F0784A /* MyProfileRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileRequest.swift; sourceTree = "<group>"; };
 		478D1C27215BB6C300F0784A /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 				47212FE32156512D00FA2DAC /* LaunchScreen.storyboard */,
 				474D23B12163EF5200AE3953 /* Constants.swift */,
 				474D23B3216400AC00AE3953 /* GoogleMapsStyle.json */,
+				474D23B52164A9BC00AE3953 /* MapMarkerWindowView.xib */,
+				474D23B92164B34600AE3953 /* InfoWindow.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -247,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47212FE52156512D00FA2DAC /* LaunchScreen.storyboard in Resources */,
+				474D23B62164A9BC00AE3953 /* MapMarkerWindowView.xib in Resources */,
 				47212FE22156512D00FA2DAC /* Assets.xcassets in Resources */,
 				474D23B4216400AC00AE3953 /* GoogleMapsStyle.json in Resources */,
 				47212FE02156512C00FA2DAC /* Main.storyboard in Resources */,
@@ -363,6 +370,7 @@
 				47212FDB2156512C00FA2DAC /* AppDelegate.swift in Sources */,
 				478D1C462160BE2700F0784A /* NothingFoundTableViewCell.swift in Sources */,
 				478D1C4B2161095500F0784A /* DetailTableViewCell.swift in Sources */,
+				474D23BA2164B34600AE3953 /* InfoWindow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,7 +527,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mihaelaSi.CheckInKeeper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -538,7 +546,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mihaelaSi.CheckInKeeper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

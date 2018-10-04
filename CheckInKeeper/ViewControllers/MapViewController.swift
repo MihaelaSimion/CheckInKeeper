@@ -10,17 +10,22 @@ import UIKit
 import GoogleMaps
 
 class MapViewController: UIViewController {
-    let locationManager = CLLocationManager()
     @IBOutlet weak var mapView: GMSMapView!
-    
+    let locationManager = CLLocationManager()
     var taggedPlaces: [TaggedPlace]?
     var taggedPlace: TaggedPlace?
+    var infoWindow: InfoWindow?
+    var tappedMarker: GMSMarker?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        infoWindow = InfoWindow().loadView()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(getTaggedPlaceValues), name: .taggedPlaceResponseChanged, object: nil)
+        
         locationManager.delegate = self
         mapView.delegate = self
+        
         locationManager.requestWhenInUseAuthorization()
         loadMap()
     }
@@ -48,6 +53,7 @@ class MapViewController: UIViewController {
             let marker = GMSMarker(position: position)
             marker.title = taggedPlace.place.name
             marker.snippet = "\(taggedPlace.place.location.city), \(taggedPlace.place.location.country)\n\(taggedPlace.place.location.street)"
+            marker.icon = UIImage(named: "bluePin")
             marker.map = mapView
             marker.userData = taggedPlace
         }
@@ -97,16 +103,39 @@ extension MapViewController: CLLocationManagerDelegate {
 }
 
 extension MapViewController: GMSMapViewDelegate {
-    
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         if let taggedPlace = marker.userData as? TaggedPlace {
             self.taggedPlace = taggedPlace
         }
+        marker.tracksInfoWindowChanges = true
+        if tappedMarker == nil {
+            marker.icon = UIImage(named: "selectedBluePin")
+            self.tappedMarker = marker
+        } else {
+            tappedMarker?.icon = UIImage(named: "bluePin")
+            marker.icon = UIImage(named: "selectedBluePin")
+            self.tappedMarker = marker
+        }
         return false
+    }
+    
+    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+        infoWindow?.titleLabel.text = marker.title
+        infoWindow?.addressLabel.text = marker.snippet
+        marker.tracksInfoWindowChanges = false
+        return self.infoWindow
     }
     
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         performSegue(withIdentifier: "markerInfoWindowToDetails", sender: self)
         navigationController?.navigationBar.isHidden = false
     }
+    
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        if tappedMarker != nil {
+            tappedMarker?.icon = UIImage(named: "bluePin")
+        }
+    }
 }
+
+

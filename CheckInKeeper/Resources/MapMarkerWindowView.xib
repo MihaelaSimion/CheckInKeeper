@@ -17,9 +17,6 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXb-zC-DYH">
                     <rect key="frame" x="212" y="32" width="22" height="35"/>
-                    <connections>
-                        <action selector="infoButtonPressed:" destination="ip3-Ya-6oI" eventType="touchUpInside" id="lDP-Sf-k3r"/>
-                    </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ggr-ky-ZsB">
                     <rect key="frame" x="16" y="10" width="186" height="80"/>
