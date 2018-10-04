@@ -111,6 +111,9 @@ extension MapViewController: GMSMapViewDelegate {
         if tappedMarker == nil {
             marker.icon = UIImage(named: "selectedBluePin")
             self.tappedMarker = marker
+        } else if tappedMarker == marker {
+            tappedMarker?.icon = UIImage(named: "bluePin")
+            tappedMarker = nil
         } else {
             tappedMarker?.icon = UIImage(named: "bluePin")
             marker.icon = UIImage(named: "selectedBluePin")
@@ -134,6 +137,7 @@ extension MapViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         if tappedMarker != nil {
             tappedMarker?.icon = UIImage(named: "bluePin")
+            tappedMarker = nil
         }
     }
 }

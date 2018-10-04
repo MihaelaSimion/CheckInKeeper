@@ -64,7 +64,7 @@ class MyTabBarController: UITabBarController {
     }
     
     func getProfilePicture(for userID: Any) {
-        let url = URL(string: "https://graph.facebook.com/\(userID)/picture?type=normal")
+        let url = URL(string: "https://graph.facebook.com/\(userID)/picture?type=large")
         DispatchQueue.global().async {
             if let url = url, let data = try? Data(contentsOf: url) {
                 DispatchQueue.main.async {
