@@ -10,7 +10,6 @@ import UIKit
 
 class ListTableViewController: UITableViewController {
     var taggedPlaces: [TaggedPlace]?
-    let myColor = UIColor(red: 19, green: 142, blue: 226, alpha: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()

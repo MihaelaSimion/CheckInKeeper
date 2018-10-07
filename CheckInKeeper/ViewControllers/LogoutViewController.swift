@@ -13,7 +13,6 @@ import FacebookLogin
 class LogoutViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var logoutButtonView: UIView!
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var idTextView: UITextView!
     
@@ -27,11 +26,12 @@ class LogoutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        logoutButton.layer.cornerRadius = 10
+        logoutButton.showsTouchWhenHighlighted = true
         
-        logoutButtonView.layer.cornerRadius = 10
         imageView.layer.cornerRadius = imageView.frame.size.width / 2
         imageView.clipsToBounds = true
-        logoutButton.showsTouchWhenHighlighted = true
+        
         idTextView.isEditable = false
         idTextView.isSelectable = true
         

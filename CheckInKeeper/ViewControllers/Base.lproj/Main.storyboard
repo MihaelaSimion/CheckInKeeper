@@ -17,31 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yI9-hN-4eD">
-                                <rect key="frame" x="66" y="446" width="188" height="53"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnL-wW-wqB">
-                                        <rect key="frame" x="65" y="10" width="58" height="33"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <state key="normal" title="Logout">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="logoutButtonPressed:" destination="cCl-W4-eYq" eventType="touchUpInside" id="pwO-I7-1bn"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.2627450980392157" green="0.62745098039215685" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="tnL-wW-wqB" secondAttribute="bottom" constant="10" id="ANS-qJ-9tH"/>
-                                    <constraint firstAttribute="trailing" secondItem="tnL-wW-wqB" secondAttribute="trailing" constant="65" id="IIb-FZ-3b6"/>
-                                    <constraint firstItem="tnL-wW-wqB" firstAttribute="leading" secondItem="yI9-hN-4eD" secondAttribute="leading" constant="65" id="SJ2-lt-dPc"/>
-                                    <constraint firstItem="tnL-wW-wqB" firstAttribute="top" secondItem="yI9-hN-4eD" secondAttribute="top" constant="10" id="wip-dv-e4u"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iIx-0T-5wQ">
-                                <rect key="frame" x="16" y="90" width="288" height="286"/>
+                                <rect key="frame" x="16" y="99" width="288" height="286"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Facebook-logo" translatesAutoresizingMaskIntoConstraints="NO" id="Qw0-pq-0uj">
                                         <rect key="frame" x="0.0" y="8" width="200" height="200"/>
@@ -89,14 +66,29 @@
                                     <constraint firstItem="HMT-ah-qdc" firstAttribute="leading" secondItem="iIx-0T-5wQ" secondAttribute="leading" id="wbW-L5-ukj"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnL-wW-wqB">
+                                <rect key="frame" x="60" y="455" width="200" height="44"/>
+                                <color key="backgroundColor" red="0.2627450980392157" green="0.62745098039215685" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="78N-Nf-kCM"/>
+                                    <constraint firstAttribute="height" constant="44" id="zRi-Mp-dHH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutButtonPressed:" destination="cCl-W4-eYq" eventType="touchUpInside" id="pwO-I7-1bn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.34901960784313724" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="iIx-0T-5wQ" firstAttribute="leading" secondItem="Une-0b-7e0" secondAttribute="leading" constant="16" id="A2c-h3-eIW"/>
-                            <constraint firstItem="Une-0b-7e0" firstAttribute="bottom" secondItem="yI9-hN-4eD" secondAttribute="bottom" constant="20" id="Cka-RG-Nvi"/>
-                            <constraint firstItem="yI9-hN-4eD" firstAttribute="centerX" secondItem="93I-C4-VNi" secondAttribute="centerX" id="SBC-OC-qbJ"/>
-                            <constraint firstItem="yI9-hN-4eD" firstAttribute="top" secondItem="iIx-0T-5wQ" secondAttribute="bottom" constant="70" id="Yjo-7L-M6g"/>
+                            <constraint firstItem="Une-0b-7e0" firstAttribute="bottom" secondItem="tnL-wW-wqB" secondAttribute="bottom" constant="20" id="D7Z-9d-fV4"/>
                             <constraint firstItem="Une-0b-7e0" firstAttribute="trailing" secondItem="iIx-0T-5wQ" secondAttribute="trailing" constant="16" id="ils-nj-XEG"/>
+                            <constraint firstItem="tnL-wW-wqB" firstAttribute="top" secondItem="iIx-0T-5wQ" secondAttribute="bottom" constant="70" id="pEB-Oj-hhk"/>
+                            <constraint firstItem="tnL-wW-wqB" firstAttribute="centerX" secondItem="93I-C4-VNi" secondAttribute="centerX" id="w6m-m7-TS0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Une-0b-7e0"/>
                     </view>
@@ -106,13 +98,12 @@
                         <outlet property="idTextView" destination="MH3-wR-Nba" id="Ob1-2K-Xjp"/>
                         <outlet property="imageView" destination="Qw0-pq-0uj" id="YI0-Nc-CgL"/>
                         <outlet property="logoutButton" destination="tnL-wW-wqB" id="4fu-tp-GZe"/>
-                        <outlet property="logoutButtonView" destination="yI9-hN-4eD" id="fDX-LK-EsP"/>
                         <outlet property="userNameLabel" destination="Iwz-KL-eGp" id="rHQ-wL-f6u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Icz-50-kMN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-463.125" y="809.15492957746483"/>
+            <point key="canvasLocation" x="-463" y="858"/>
         </scene>
         <!--My Tab Bar Controller-->
         <scene sceneID="dCY-8f-aJ7">
@@ -162,11 +153,12 @@
                     <connections>
                         <outlet property="mapView" destination="AVi-9F-ecO" id="4fO-AI-kOD"/>
                         <segue destination="O3C-cQ-PoK" kind="show" identifier="markerInfoWindowToDetails" id="sv6-ot-X9q"/>
+                        <segue destination="R6e-9Y-sqQ" kind="show" identifier="multipleCheckinsForATaggedPlace" id="6zI-Rw-BsK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ffv-pE-9fA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1431" y="-511"/>
+            <point key="canvasLocation" x="1431" y="-566"/>
         </scene>
         <!--ListController-->
         <scene sceneID="9bx-l1-BWJ">
@@ -327,7 +319,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XXn-YJ-IfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1430.625" y="225"/>
+            <point key="canvasLocation" x="1431" y="297"/>
         </scene>
         <!--Map-->
         <scene sceneID="iT9-lK-OPo">
@@ -344,7 +336,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0V5-uG-jWO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="548" y="-511"/>
+            <point key="canvasLocation" x="548" y="-566"/>
         </scene>
         <!--Details Table View Controller-->
         <scene sceneID="tLd-ee-c26">
@@ -445,7 +437,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="29O-Bc-ady" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2415" y="-111"/>
+            <point key="canvasLocation" x="2477" y="-57"/>
         </scene>
         <!--Login-->
         <scene sceneID="h6O-60-hlR">
@@ -455,39 +447,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3D-R4-Dpn">
-                                <rect key="frame" x="66" y="257.5" width="188" height="53"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ki-BL-TYz">
-                                        <rect key="frame" x="10" y="10" width="168" height="33"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <state key="normal" title="Login with Facebook"/>
-                                        <connections>
-                                            <action selector="loginButtonPressed:" destination="4Wm-Hs-xDj" eventType="touchUpInside" id="c0t-uI-PR8"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ki-BL-TYz">
+                                <rect key="frame" x="60" y="262" width="200" height="44"/>
                                 <color key="backgroundColor" red="0.2627450980392157" green="0.62745098039215685" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="7ki-BL-TYz" secondAttribute="trailing" constant="10" id="3sc-V5-ud4"/>
-                                    <constraint firstItem="7ki-BL-TYz" firstAttribute="leading" secondItem="q3D-R4-Dpn" secondAttribute="leading" constant="10" id="lFH-wJ-FoR"/>
-                                    <constraint firstAttribute="bottom" secondItem="7ki-BL-TYz" secondAttribute="bottom" constant="10" id="pP3-Cl-oBu"/>
-                                    <constraint firstItem="7ki-BL-TYz" firstAttribute="top" secondItem="q3D-R4-Dpn" secondAttribute="top" constant="10" id="rzY-Ws-Mpo"/>
+                                    <constraint firstAttribute="height" constant="44" id="GoH-nS-WC4"/>
+                                    <constraint firstAttribute="width" constant="200" id="Wkk-qw-3A6"/>
                                 </constraints>
-                            </view>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Login with Facebook"/>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="4Wm-Hs-xDj" eventType="touchUpInside" id="c0t-uI-PR8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.34901960784313724" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
-                            <constraint firstItem="q3D-R4-Dpn" firstAttribute="centerY" secondItem="4k4-8S-rK8" secondAttribute="centerY" id="0Yb-nC-Vfl"/>
-                            <constraint firstItem="q3D-R4-Dpn" firstAttribute="centerX" secondItem="4k4-8S-rK8" secondAttribute="centerX" id="YEz-Nh-PXY"/>
+                            <constraint firstItem="7ki-BL-TYz" firstAttribute="centerX" secondItem="4k4-8S-rK8" secondAttribute="centerX" id="Qi1-HW-Z01"/>
+                            <constraint firstItem="7ki-BL-TYz" firstAttribute="centerY" secondItem="4k4-8S-rK8" secondAttribute="centerY" id="hm9-Ef-v3P"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="J3B-as-AxO"/>
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="7ki-BL-TYz" id="Xvy-z6-3C5"/>
-                        <outlet property="loginView" destination="q3D-R4-Dpn" id="WUM-zJ-UCx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="udB-iM-sS6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -511,7 +494,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AVk-Hz-4mu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="547.5" y="225"/>
+            <point key="canvasLocation" x="548" y="297"/>
         </scene>
     </scenes>
     <resources>
@@ -522,6 +505,7 @@
         <image name="logoutFromProfile" width="24" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5Gp-Xg-exV"/>
+        <segue reference="sv6-ot-X9q"/>
+        <segue reference="6zI-Rw-BsK"/>
     </inferredMetricsTieBreakers>
 </document>
