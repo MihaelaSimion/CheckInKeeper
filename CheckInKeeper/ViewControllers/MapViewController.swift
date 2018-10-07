@@ -12,10 +12,11 @@ import GoogleMaps
 class MapViewController: UIViewController {
     @IBOutlet weak var mapView: GMSMapView!
     let locationManager = CLLocationManager()
-    var taggedPlaces: [TaggedPlace]?
     var taggedPlace: TaggedPlace?
     var infoWindow: InfoWindow?
     var tappedMarker: GMSMarker?
+    var mapLocations: [MapLocation] = []
+    var selectedMapLocation: MapLocation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,23 +48,40 @@ class MapViewController: UIViewController {
         mapView.camera = defaultCamera
     }
     
-    func addMarkers(taggedPlaces: [TaggedPlace]) {
-        for taggedPlace in taggedPlaces {
-            let position = CLLocationCoordinate2D(latitude: taggedPlace.place.location.latitude, longitude: taggedPlace.place.location.longitude)
+    func addMarkers(mapLocations: [MapLocation]) {
+        for mapLocation in mapLocations {
+            guard let place = mapLocation.taggedPlaces.first?.place else { return }
+            let location = place.location
+            let position = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
             let marker = GMSMarker(position: position)
-            marker.title = taggedPlace.place.name
-            marker.snippet = "\(taggedPlace.place.location.city), \(taggedPlace.place.location.country)\n\(taggedPlace.place.location.street)"
+            marker.title = place.name
+            marker.snippet = "\(location.city), \(location.country)\n\(location.street)"
             marker.icon = UIImage(named: "bluePin")
             marker.map = mapView
-            marker.userData = taggedPlace
+            marker.userData = mapLocation.placeID
         }
     }
     
     @objc func getTaggedPlaceValues() {
         if let tabController = tabBarController as? MyTabBarController {
             if let taggedPlaces = tabController.taggedPlaceResponse?.data {
-                self.taggedPlaces = taggedPlaces
-                addMarkers(taggedPlaces: taggedPlaces)
+                _ = taggedPlaces.compactMap { (taggedPlace) -> TaggedPlace? in
+                    var existingIndex = -1
+                    for (index, mapLocation) in mapLocations.enumerated() {
+                        if mapLocation.placeID == taggedPlace.place.id {
+                            existingIndex = index
+                        }
+                    }
+                    if existingIndex >= 0 {
+                        mapLocations[existingIndex].taggedPlaces.append(taggedPlace)
+                    } else {
+                        let newMapLocation = MapLocation(placeID: taggedPlace.place.id, taggedPlaces: [taggedPlace])
+                        mapLocations.append(newMapLocation)
+                    }
+                    return taggedPlace
+                }
+                mapView.clear()
+                addMarkers(mapLocations: mapLocations)
             }
         }
     }
@@ -76,8 +94,13 @@ class MapViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "markerInfoWindowToDetails" {
             guard let controller = segue.destination as? DetailsTableViewController else { return }
-            guard let taggedPlace = taggedPlace else { return }
+            guard let selectedMapLocation = selectedMapLocation,
+                let taggedPlace = selectedMapLocation.taggedPlaces.first else { return }
             controller.taggedPlace = taggedPlace
+        } else if segue.identifier == "multipleCheckinsForATaggedPlace" {
+            guard let controller = segue.destination as? ListTableViewController else { return }
+            guard let selectedTaggedPlaces = selectedMapLocation?.taggedPlaces else { return }
+            controller.taggedPlaces = selectedTaggedPlaces
         }
     }
 }
@@ -104,8 +127,8 @@ extension MapViewController: CLLocationManagerDelegate {
 
 extension MapViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        if let taggedPlace = marker.userData as? TaggedPlace {
-            self.taggedPlace = taggedPlace
+        if let selectedPlaceId = marker.userData as? String {
+            self.selectedMapLocation = mapLocations.filter { return $0.placeID == selectedPlaceId }.first
         }
         marker.tracksInfoWindowChanges = true
         if tappedMarker == nil {
@@ -130,7 +153,14 @@ extension MapViewController: GMSMapViewDelegate {
     }
     
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        performSegue(withIdentifier: "markerInfoWindowToDetails", sender: self)
+        guard let selectedMapLocation = selectedMapLocation,
+            selectedMapLocation.taggedPlaces.isEmpty == false else { return }
+        
+        if selectedMapLocation.taggedPlaces.count == 1 {
+            performSegue(withIdentifier: "markerInfoWindowToDetails", sender: self)
+        } else {
+            performSegue(withIdentifier: "multipleCheckinsForATaggedPlace", sender: self)
+        }
         navigationController?.navigationBar.isHidden = false
     }
     
