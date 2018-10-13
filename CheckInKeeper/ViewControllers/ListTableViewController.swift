@@ -9,7 +9,13 @@
 import UIKit
 
 class ListTableViewController: UITableViewController {
-    var taggedPlaces: [TaggedPlace]?
+    var taggedPlaces: [TaggedPlace]? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
+    var immutableInitialListOfTaggedPlaces: [TaggedPlace]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,9 +24,6 @@ class ListTableViewController: UITableViewController {
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
         tableView.refreshControl = refresh
-        
-        getCheckinData()
-        NotificationCenter.default.addObserver(self, selector: #selector(getCheckinData), name: .taggedPlaceResponseChanged, object: nil)
     }
     
     func createSearchBar() {
@@ -31,21 +34,9 @@ class ListTableViewController: UITableViewController {
         navigationItem.titleView = searchBar
     }
     
-    @objc func getCheckinData() {
-        if let tabController = tabBarController as? MyTabBarController {
-            if let data = tabController.taggedPlaceResponse?.data {
-                let sortedData = data.sorted { (first, next) -> Bool in
-                    return first.created_time! > next.created_time!
-                }
-                taggedPlaces = sortedData
-            }
-        }
-        tableView.reloadData()
-    }
-    
     @objc func refreshAction() {
-        if let tabBar = tabBarController as? MyTabBarController {
-            tabBar.getUserDetails()
+        if let tabBarController = tabBarController as? MyTabBarController {
+            tabBarController.getUserDetails()
         }
         tableView.refreshControl?.endRefreshing()
     }
@@ -84,10 +75,6 @@ class ListTableViewController: UITableViewController {
             controller.taggedPlace = taggedPlaces[index]
         }
     }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: .taggedPlaceResponseChanged, object: nil)
-    }
 }
 
 //MARK: Search Bar Delegate:
@@ -99,18 +86,17 @@ extension ListTableViewController: UISearchBarDelegate {
             return tagedPlace.place.name.lowercased().hasPrefix(searchBarText.lowercased())
         })
         taggedPlaces = firstThreeLettersPlaceNameArray
-        tableView.reloadData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         searchBar.text = nil
-        getCheckinData()
+        taggedPlaces = immutableInitialListOfTaggedPlaces
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty == true {
-            getCheckinData()
+            taggedPlaces = immutableInitialListOfTaggedPlaces
         }
     }
 }

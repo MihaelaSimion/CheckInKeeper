@@ -15,13 +15,20 @@ protocol LogoutProtocol {
 
 class MyTabBarController: UITabBarController {
     var logoutDelegate: LogoutProtocol?
-    var taggedPlaceResponse: TaggedPlacesResponse?
+    var taggedPlaceResponse: TaggedPlacesResponse? {
+        didSet {
+            refreshListController()
+            refreshMapController()
+            refreshLogoutController()
+        }
+    }
     var userName: String?
     var userID: String?
     var profilePicture: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.delegate = self
         getUserDetails()
     }
     
@@ -39,7 +46,6 @@ class MyTabBarController: UITabBarController {
                     self.getCheckinList(for: userID)
                     self.getProfilePicture(for: userID)
                 }
-                NotificationCenter.default.post(name: .nameAndIdChanged, object: nil)
             case .failed(let error):
                 print("Graph Request Failed: \(error)")
             }
@@ -54,7 +60,6 @@ class MyTabBarController: UITabBarController {
             case .success(let response):
                 if let taggedPlaceResponse = response.taggedPlaceResponse {
                     self.taggedPlaceResponse = taggedPlaceResponse
-                    NotificationCenter.default.post(name: .taggedPlaceResponseChanged, object: nil)
                 }
             case .failed(let error):
                 print("Graph Request Failed: \(error)")
@@ -73,4 +78,56 @@ class MyTabBarController: UITabBarController {
             }
         }
     }
+    
+    func refreshListController() {
+        guard let listTableViewController = (selectedViewController as? UINavigationController)?.viewControllers.first as? ListTableViewController else { return }
+        if let data = taggedPlaceResponse?.data {
+            let sortedData = data.sorted { (first, next) -> Bool in
+                return first.created_time! > next.created_time!
+            }
+            listTableViewController.taggedPlaces = sortedData
+            listTableViewController.immutableInitialListOfTaggedPlaces = sortedData
+        }
+    }
+    
+    func refreshMapController () {
+        guard let mapViewController = (selectedViewController as? UINavigationController)?.viewControllers.first as? MapViewController else { return }
+        mapViewController.mapLocations = []
+        if let taggedPlaces = taggedPlaceResponse?.data {
+            _ = taggedPlaces.compactMap { (taggedPlace) -> TaggedPlace? in
+                var existingIndex = -1
+                for (index, mapLocation) in mapViewController.mapLocations.enumerated() {
+                    if mapLocation.placeID == taggedPlace.place.id {
+                        existingIndex = index
+                    }
+                }
+                if existingIndex >= 0 {
+                    mapViewController.mapLocations[existingIndex].taggedPlaces.append(taggedPlace)
+                } else {
+                    let newMapLocation = MapLocation(placeID: taggedPlace.place.id, taggedPlaces: [taggedPlace])
+                    mapViewController.mapLocations.append(newMapLocation)
+                }
+                return taggedPlace
+            }
+            mapViewController.mapView.clear()
+            mapViewController.addMarkers(mapLocations: mapViewController.mapLocations)
+        }
+    }
+    
+    func refreshLogoutController() {
+        guard let logoutViewController = selectedViewController as? LogoutViewController else { return }
+        guard let id = userID, let name = userName, let image = profilePicture else { return }
+        logoutViewController.userNameLabel.text = name
+        logoutViewController.idTextView.text = id
+        logoutViewController.imageView.image = image
+    }
 }
+
+extension MyTabBarController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        refreshMapController()
+        refreshListController()
+        refreshLogoutController()
+    }
+}
+

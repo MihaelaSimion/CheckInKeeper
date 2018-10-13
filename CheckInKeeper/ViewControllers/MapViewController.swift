@@ -22,8 +22,6 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         infoWindow = InfoWindow().loadView()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(getTaggedPlaceValues), name: .taggedPlaceResponseChanged, object: nil)
-        
         locationManager.delegate = self
         mapView.delegate = self
         
@@ -62,34 +60,6 @@ class MapViewController: UIViewController {
         }
     }
     
-    @objc func getTaggedPlaceValues() {
-        if let tabController = tabBarController as? MyTabBarController {
-            if let taggedPlaces = tabController.taggedPlaceResponse?.data {
-                _ = taggedPlaces.compactMap { (taggedPlace) -> TaggedPlace? in
-                    var existingIndex = -1
-                    for (index, mapLocation) in mapLocations.enumerated() {
-                        if mapLocation.placeID == taggedPlace.place.id {
-                            existingIndex = index
-                        }
-                    }
-                    if existingIndex >= 0 {
-                        mapLocations[existingIndex].taggedPlaces.append(taggedPlace)
-                    } else {
-                        let newMapLocation = MapLocation(placeID: taggedPlace.place.id, taggedPlaces: [taggedPlace])
-                        mapLocations.append(newMapLocation)
-                    }
-                    return taggedPlace
-                }
-                mapView.clear()
-                addMarkers(mapLocations: mapLocations)
-            }
-        }
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: .taggedPlaceResponseChanged, object: nil)
-    }
-    
     //MARK: Navigation:
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "markerInfoWindowToDetails" {
@@ -101,6 +71,9 @@ class MapViewController: UIViewController {
             guard let controller = segue.destination as? ListTableViewController else { return }
             guard let selectedTaggedPlaces = selectedMapLocation?.taggedPlaces else { return }
             controller.taggedPlaces = selectedTaggedPlaces
+            controller.navigationItem.titleView = nil
+            controller.navigationItem.title = selectedTaggedPlaces[0].place.name
+            controller.tableView.refreshControl = nil
         }
     }
 }

@@ -34,21 +34,5 @@ class LogoutViewController: UIViewController {
         
         idTextView.isEditable = false
         idTextView.isSelectable = true
-        
-        getNameAndId()
-        NotificationCenter.default.addObserver(self, selector: #selector(getNameAndId), name: .nameAndIdChanged, object: nil)
-    }
-    
-    @objc func getNameAndId() {
-        if let controller = tabBarController as? MyTabBarController {
-            guard let id = controller.userID, let name = controller.userName, let image = controller.profilePicture else { return }
-            userNameLabel.text = name
-            idTextView.text = id
-            imageView.image = image
-        }
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: .nameAndIdChanged, object: nil)
     }
 }
