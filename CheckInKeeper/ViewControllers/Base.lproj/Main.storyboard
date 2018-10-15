@@ -382,7 +382,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZbB-Jm-VKm">
+                                        <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="ZbB-Jm-VKm">
                                             <rect key="frame" x="8" y="6" width="304" height="88"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ZBY-xT-h0j">
@@ -401,6 +401,14 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="Mg4-Q6-Lw1" secondAttribute="trailing" id="0Tc-3O-ZhQ"/>
+                                                        <constraint firstItem="Mg4-Q6-Lw1" firstAttribute="top" secondItem="ZBY-xT-h0j" secondAttribute="top" id="7fk-0d-NWD"/>
+                                                        <constraint firstItem="VtW-ak-yAB" firstAttribute="leading" secondItem="ZBY-xT-h0j" secondAttribute="leading" id="GyE-e1-61R"/>
+                                                        <constraint firstItem="Mg4-Q6-Lw1" firstAttribute="leading" secondItem="ZBY-xT-h0j" secondAttribute="leading" id="H0j-Qq-iei"/>
+                                                        <constraint firstAttribute="bottom" secondItem="VtW-ak-yAB" secondAttribute="bottom" id="VHk-2N-dso"/>
+                                                        <constraint firstAttribute="trailing" secondItem="VtW-ak-yAB" secondAttribute="trailing" id="euD-Pv-XAD"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
