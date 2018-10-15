@@ -8,12 +8,13 @@
 
 import Foundation
 
-struct TaggedPlacesResponse: Codable {
+struct TaggedPlacesResponse {
     var data: [TaggedPlace]
+
     init?(dictionary: Dictionary<String, Any>?) {
         guard let anyDataArray = dictionary?["data"] as? Array<Any> else { return nil }
         var taggedPlaces: [TaggedPlace] = []
-        
+
         for anyData in anyDataArray {
             if let taggedPlace = TaggedPlace(anyData: anyData) {
                 taggedPlaces.append(taggedPlace)
@@ -22,8 +23,3 @@ struct TaggedPlacesResponse: Codable {
         data = taggedPlaces
     }
 }
-
-
-
-
-

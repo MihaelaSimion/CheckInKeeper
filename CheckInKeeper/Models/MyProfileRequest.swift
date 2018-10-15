@@ -12,6 +12,7 @@ import FacebookCore
 struct MyProfileRequest: GraphRequestProtocol {
     struct Response: GraphResponseProtocol {
         var taggedPlaceResponse: TaggedPlacesResponse?
+
         init(rawResponse: Any?) {
             if let dic = rawResponse as? Dictionary<String, Any>,
                 let taggedPlaceResponse = TaggedPlacesResponse(dictionary: dic) {
@@ -19,14 +20,14 @@ struct MyProfileRequest: GraphRequestProtocol {
             }
         }
     }
-    
-    var parameters: [String : Any]?
+
+    var parameters: [String: Any]?
     var graphPath: String
-    
+
     init(graphPath: String) {
         self.graphPath = graphPath
     }
-    
+
     var accessToken = AccessToken.current
     var httpMethod: GraphRequestHTTPMethod = .GET
     var apiVersion: GraphAPIVersion = .defaultVersion

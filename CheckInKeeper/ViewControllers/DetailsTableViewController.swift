@@ -12,17 +12,17 @@ import GoogleMaps
 class DetailsTableViewController: UITableViewController {
     var taggedPlace: TaggedPlace?
     var cellConfiguration: [CellDetailType] = [.name, .date, .city, .country, .street, .latitude, .longitude]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Check-in details:"
     }
-    
-    //MARK: Table view data source:
+
+    // MARK: Table view data source:
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellConfiguration.count + 1
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let taggedPlace = taggedPlace else { return UITableViewCell() }
         if indexPath.row == 0 {
@@ -34,6 +34,7 @@ class DetailsTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "detailsCell", for: indexPath) as? DetailTableViewCell
             cell?.configureDetailCell(taggedPlace: taggedPlace, cellDetailType: cellConfiguration[indexPath.row - 1])
             cell?.selectionStyle = .none
+            cell?.layoutIfNeeded()
             return cell ?? UITableViewCell()
         }
     }

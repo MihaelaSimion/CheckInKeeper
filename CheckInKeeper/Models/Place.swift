@@ -8,17 +8,18 @@
 
 import Foundation
 
-struct Place: Codable {
+struct Place {
     var location: Location
     var id: String
     var name: String
+
     init?(anyData: Any?) {
-        guard let dictionary = anyData as? Dictionary<String, Any> else { return nil}
+        guard let dictionary = anyData as? Dictionary<String, Any> else { return nil }
         guard let id = dictionary["id"] as? String else { return nil }
         self.id = id
         guard let location = Location(anyData: dictionary["location"]) else { return nil }
         self.location = location
-        guard let name = dictionary["name"] as? String else { return nil}
+        guard let name = dictionary["name"] as? String else { return nil }
         self.name = name
     }
 }
