@@ -9,14 +9,14 @@
 import UIKit
 
 class MainTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var cellView: UIView!
-    @IBOutlet weak var placeNameLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var viewWithNumber: UIView!
-    @IBOutlet weak var numberLabel: UILabel!
-    @IBOutlet weak var detailView: UIView!
-    
+
+    @IBOutlet private weak var cellView: UIView!
+    @IBOutlet private weak var placeNameLabel: UILabel!
+    @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var viewWithNumber: UIView!
+    @IBOutlet private weak var numberLabel: UILabel!
+    @IBOutlet private weak var detailView: UIView!
+
     func configureCell(_ taggedPlace: TaggedPlace, for index: IndexPath) {
         cellView.layer.cornerRadius = 4
         cellView.layer.shadowColor = UIColor.black.cgColor
@@ -27,7 +27,7 @@ class MainTableViewCell: UITableViewCell {
         numberLabel.text = "\(index.row + 1)"
         numberLabel.textColor = .white
         placeNameLabel.text = taggedPlace.place.name
-        dateLabel.text = taggedPlace.created_time?.toCustomPrint()
+        dateLabel.text = taggedPlace.createdTime?.toCustomPrint()
         detailView.layer.cornerRadius = 2
     }
 }

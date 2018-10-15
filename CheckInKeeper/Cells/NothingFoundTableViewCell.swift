@@ -10,9 +10,9 @@ import UIKit
 
 class NothingFoundTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var mainView: UIView!
-    @IBOutlet weak var label: UILabel!
-    
+    @IBOutlet private weak var mainView: UIView!
+    @IBOutlet private weak var label: UILabel!
+
     func configureNothingFoundCell() {
         mainView.layer.cornerRadius = 4
         mainView.layer.shadowColor = UIColor.black.cgColor

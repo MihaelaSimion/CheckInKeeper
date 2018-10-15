@@ -10,16 +10,16 @@ import UIKit
 import GoogleMaps
 
 class MapTableViewCell: UITableViewCell {
-    @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet private weak var mapView: GMSMapView!
     var taggedPlace: TaggedPlace?
-    
+
     func configureCell(taggedPlace: TaggedPlace) {
         mapView.layer.cornerRadius = 4
         self.taggedPlace = taggedPlace
         loadMap()
         addMarker()
     }
-    
+
     func addMarker() {
         let coordinates = getCoordinates()
         let position = CLLocationCoordinate2D(latitude: coordinates.latitude, longitude: coordinates.longitude)
@@ -28,7 +28,7 @@ class MapTableViewCell: UITableViewCell {
         marker.icon = UIImage(named: "selectedBluePin")
         marker.map = mapView
     }
-    
+
     func loadMap() {
         do {
             if let styleURL = Bundle.main.url(forResource: "GoogleMapsStyle", withExtension: "json") {
@@ -45,11 +45,11 @@ class MapTableViewCell: UITableViewCell {
         mapView.settings.scrollGestures = false
         mapView.settings.tiltGestures = false
     }
-    
+
     func getCoordinates() -> CLLocationCoordinate2D {
         let latitude = taggedPlace?.place.location.latitude ?? 45.9432
         let longitude = taggedPlace?.place.location.longitude ?? 24.9668
-        
+
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 }

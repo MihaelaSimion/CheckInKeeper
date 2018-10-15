@@ -9,11 +9,11 @@
 import UIKit
 
 class DetailTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var view: UIView!
-    @IBOutlet weak var detailLabel: UILabel!
-    @IBOutlet weak var detailNameLabel: UILabel!
-    
+
+    @IBOutlet private weak var view: UIView!
+    @IBOutlet private weak var detailLabel: UILabel!
+    @IBOutlet private weak var detailNameLabel: UILabel!
+
     func configureDetailCell(taggedPlace: TaggedPlace, cellDetailType: CellDetailType) {
         view.layer.cornerRadius = 4
         detailLabel.text = cellDetailType.textForDetailLabel(taggedPlace: taggedPlace)
@@ -29,26 +29,26 @@ enum CellDetailType {
     case street
     case latitude
     case longitude
-    
+
     func textForDetailLabel(taggedPlace: TaggedPlace) -> String {
         switch self {
         case .name:
             return taggedPlace.place.name
         case .date:
-            return taggedPlace.created_time?.toCustomPrint() ?? ""
+            return taggedPlace.createdTime?.toCustomPrint() ?? ""
         case .city:
-            return taggedPlace.place.location.city
+            return taggedPlace.place.location.city ?? "No details."
         case .country:
-            return taggedPlace.place.location.country
+            return taggedPlace.place.location.country ?? "No details."
         case .street:
-            return taggedPlace.place.location.street
+            return taggedPlace.place.location.street ?? "No details."
         case .latitude:
-            return String(format: "%.8f", taggedPlace.place.location.latitude)
+            return String(format: "%.4f", taggedPlace.place.location.latitude)
         case .longitude:
-            return String(format: "%.8f", taggedPlace.place.location.longitude)
+            return String(format: "%.4f", taggedPlace.place.location.longitude)
         }
     }
-    
+
     func textForDetailNameLabel() -> String {
         switch self {
         case .name:
