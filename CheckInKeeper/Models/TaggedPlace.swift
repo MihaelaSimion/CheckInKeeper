@@ -8,15 +8,35 @@
 
 import Foundation
 
-struct TaggedPlace: Codable {
+struct TaggedPlace {
     var place: Place
-    var created_time: Date?
+    var createdTime: Date?
+
     init?(anyData: Any?) {
         guard let anyData = anyData as? Dictionary<String, Any> else { return nil }
         guard let place = Place(anyData: anyData["place"]) else { return nil }
         self.place = place
         guard let dateString = anyData["created_time"] as? String else { return nil }
         guard let date = dateString.facebookStringValueToDate() else { return nil }
-        self.created_time = date
+        self.createdTime = date
+    }
+}
+
+extension Array where Element == TaggedPlace {
+    func addMapLocations() -> [MapLocation] {
+        var mapLocations: [MapLocation] = []
+        for taggedPlace in self {
+            var existingIndex = -1
+            for (index, mapLocation) in mapLocations.enumerated() where mapLocation.placeID == taggedPlace.place.id {
+                existingIndex = index
+            }
+            if existingIndex >= 0 {
+                mapLocations[existingIndex].taggedPlaces.append(taggedPlace)
+            } else {
+                let newMapLocation = MapLocation(placeID: taggedPlace.place.id, taggedPlaces: [taggedPlace])
+                mapLocations.append(newMapLocation)
+            }
+        }
+        return mapLocations
     }
 }
