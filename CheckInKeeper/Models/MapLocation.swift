@@ -13,4 +13,3 @@ struct MapLocation {
     var placeID: String
     var taggedPlaces: [TaggedPlace] = []
 }
-
