@@ -11,28 +11,40 @@ import FacebookCore
 import FacebookLogin
 
 class LogoutViewController: UIViewController {
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var logoutButton: UIButton!
-    @IBOutlet weak var idTextView: UITextView!
-    
-    @IBAction func logoutButtonPressed(_ sender: Any) {
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var userNameLabel: UILabel!
+    @IBOutlet private weak var logoutButton: UIButton!
+    @IBOutlet private weak var idTextView: UITextView!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        logoutButton.layer.cornerRadius = Constants.CornerRadiusValues.buttonCornerRadius
+        logoutButton.showsTouchWhenHighlighted = true
+
+        imageView.layer.cornerRadius = imageView.frame.size.width / 2
+        imageView.clipsToBounds = true
+
+        idTextView.isEditable = false
+        idTextView.isSelectable = true
+    }
+
+    @IBAction private func logoutButtonPressed(_ sender: Any) {
         let loginManager = LoginManager()
         loginManager.logOut()
         if let tabController = tabBarController as? MyTabBarController {
             tabController.logoutDelegate?.logout()
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        logoutButton.layer.cornerRadius = 10
-        logoutButton.showsTouchWhenHighlighted = true
-        
-        imageView.layer.cornerRadius = imageView.frame.size.width / 2
-        imageView.clipsToBounds = true
-        
-        idTextView.isEditable = false
-        idTextView.isSelectable = true
+
+    func setUserNameLabelText(text: String) {
+        userNameLabel.text = text
+    }
+
+    func setIdTextView(text: String) {
+        idTextView.text = text
+    }
+
+    func setImageViewImage(image: UIImage) {
+        imageView.image = image
     }
 }

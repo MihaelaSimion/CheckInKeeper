@@ -10,22 +10,21 @@ import UIKit
 import FacebookCore
 import FacebookLogin
 
-protocol LoginProtocol {
+protocol LoginProtocol: AnyObject {
     func loginSuccessful()
 }
 
 class LoginViewController: UIViewController {
-    @IBOutlet weak var loginButton: UIButton!
-    
-    var delegate: LoginProtocol?
-    
+    @IBOutlet private weak var loginButton: UIButton!
+    weak var delegate: LoginProtocol?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginButton.layer.cornerRadius = 10
+        loginButton.layer.cornerRadius = Constants.CornerRadiusValues.buttonCornerRadius
         loginButton.showsTouchWhenHighlighted = true
     }
- 
-    @IBAction func loginButtonPressed(_ sender: Any) {
+
+    @IBAction private func loginButtonPressed(_ sender: Any) {
         let loginManager = LoginManager()
         loginManager.logIn(readPermissions: [.publicProfile, .userTaggedPlaces], viewController: self) { loginResult in
             switch loginResult {
@@ -33,12 +32,10 @@ class LoginViewController: UIViewController {
                 print(error)
             case .cancelled:
                 print("User cancelled login.")
-            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+            case .success( _, _, let accessToken):
                 print("Logged in! \(accessToken)")
                 self.delegate?.loginSuccessful()
             }
         }
     }
 }
-
-

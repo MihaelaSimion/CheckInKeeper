@@ -14,18 +14,18 @@ class ListTableViewController: UITableViewController {
             tableView.reloadData()
         }
     }
-    
+
     var immutableInitialListOfTaggedPlaces: [TaggedPlace]?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         createSearchBar()
-        
+
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
         tableView.refreshControl = refresh
     }
-    
+
     func createSearchBar() {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Search for check-ins"
@@ -33,22 +33,22 @@ class ListTableViewController: UITableViewController {
         searchBar.showsCancelButton = true
         navigationItem.titleView = searchBar
     }
-    
+
     @objc func refreshAction() {
         if let tabBarController = tabBarController as? MyTabBarController {
-            tabBarController.getUserDetails()
+            tabBarController.refreshActionFromListView()
         }
         tableView.refreshControl?.endRefreshing()
     }
-    
+
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let taggedPlaces = taggedPlaces else { return 1 }
-        return taggedPlaces.count > 0 ? taggedPlaces.count : 1
+        return taggedPlaces.isEmpty ? 1 : taggedPlaces.count
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let taggedPlaces = taggedPlaces, taggedPlaces.count > 0 {
+        if let taggedPlaces = taggedPlaces, !taggedPlaces.isEmpty {
             let cell = tableView.dequeueReusableCell(withIdentifier: "mainReuseCell", for: indexPath) as? MainTableViewCell
             cell?.configureCell(taggedPlaces[indexPath.row], for: indexPath)
             cell?.selectionStyle = .none
@@ -60,13 +60,13 @@ class ListTableViewController: UITableViewController {
             return cell ?? UITableViewCell()
         }
     }
-    
-    //MARK: Table View Delegate
+
+    // MARK: Table View Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let taggedPlaces = taggedPlaces, taggedPlaces.count > 0 else { return }
+        guard let taggedPlaces = taggedPlaces, !taggedPlaces.isEmpty else { return }
         performSegue(withIdentifier: "detailsSegue", sender: self)
     }
-    
+
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let controller = segue.destination as? DetailsTableViewController {
@@ -77,23 +77,23 @@ class ListTableViewController: UITableViewController {
     }
 }
 
-//MARK: Search Bar Delegate:
+// MARK: Search Bar Delegate:
 extension ListTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        let firstThreeLettersPlaceNameArray = taggedPlaces?.filter({ (tagedPlace) -> Bool in
+        let firstThreeLettersPlaceNameArray = taggedPlaces?.filter { tagedPlace -> Bool in
             guard let searchBarText = searchBar.text else { return false }
             return tagedPlace.place.name.lowercased().hasPrefix(searchBarText.lowercased())
-        })
+        }
         taggedPlaces = firstThreeLettersPlaceNameArray
     }
-    
+
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         searchBar.text = nil
         taggedPlaces = immutableInitialListOfTaggedPlaces
     }
-    
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty == true {
             taggedPlaces = immutableInitialListOfTaggedPlaces
