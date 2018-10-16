@@ -20,6 +20,8 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = Constants.Colors.backgroundColor
+        loginButton.backgroundColor = Constants.Colors.buttonColor
         loginButton.layer.cornerRadius = Constants.CornerRadiusValues.buttonCornerRadius
         loginButton.showsTouchWhenHighlighted = true
     }
@@ -32,8 +34,7 @@ class LoginViewController: UIViewController {
                 print(error)
             case .cancelled:
                 print("User cancelled login.")
-            case .success( _, _, let accessToken):
-                print("Logged in! \(accessToken)")
+            case .success( _, _, _):
                 self.delegate?.loginSuccessful()
             }
         }

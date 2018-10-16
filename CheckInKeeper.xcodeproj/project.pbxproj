@@ -15,8 +15,11 @@
 		47212FE52156512D00FA2DAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47212FE32156512D00FA2DAC /* LaunchScreen.storyboard */; };
 		474D23B22163EF5200AE3953 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474D23B12163EF5200AE3953 /* Constants.swift */; };
 		474D23B4216400AC00AE3953 /* GoogleMapsStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = 474D23B3216400AC00AE3953 /* GoogleMapsStyle.json */; };
-		474D23B62164A9BC00AE3953 /* MapMarkerWindowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 474D23B52164A9BC00AE3953 /* MapMarkerWindowView.xib */; };
+		474D23B62164A9BC00AE3953 /* InfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 474D23B52164A9BC00AE3953 /* InfoWindow.xib */; };
 		474D23BA2164B34600AE3953 /* InfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474D23B92164B34600AE3953 /* InfoWindow.swift */; };
+		47889D11217345D500E35313 /* FacebookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47889D10217345D500E35313 /* FacebookService.swift */; };
+		47889D1B2174A6F600E35313 /* GoogleMapsApiKey.txt in Sources */ = {isa = PBXBuildFile; fileRef = 47889D1A2174A6F600E35313 /* GoogleMapsApiKey.txt */; };
+		47889D1C2174B81F00E35313 /* GoogleMapsApiKey.txt in Resources */ = {isa = PBXBuildFile; fileRef = 47889D1A2174A6F600E35313 /* GoogleMapsApiKey.txt */; };
 		478D1C24215A46AD00F0784A /* TaggedPlacesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C23215A46AD00F0784A /* TaggedPlacesResponse.swift */; };
 		478D1C26215A5EE500F0784A /* MyProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C25215A5EE500F0784A /* MyProfileRequest.swift */; };
 		478D1C28215BB6C300F0784A /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C27215BB6C300F0784A /* NotificationExtension.swift */; };
@@ -51,8 +54,10 @@
 		47212FE62156512D00FA2DAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		474D23B12163EF5200AE3953 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		474D23B3216400AC00AE3953 /* GoogleMapsStyle.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GoogleMapsStyle.json; sourceTree = "<group>"; };
-		474D23B52164A9BC00AE3953 /* MapMarkerWindowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapMarkerWindowView.xib; sourceTree = "<group>"; };
+		474D23B52164A9BC00AE3953 /* InfoWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoWindow.xib; sourceTree = "<group>"; };
 		474D23B92164B34600AE3953 /* InfoWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoWindow.swift; sourceTree = "<group>"; };
+		47889D10217345D500E35313 /* FacebookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookService.swift; sourceTree = "<group>"; };
+		47889D1A2174A6F600E35313 /* GoogleMapsApiKey.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = GoogleMapsApiKey.txt; sourceTree = "<group>"; };
 		478D1C23215A46AD00F0784A /* TaggedPlacesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggedPlacesResponse.swift; sourceTree = "<group>"; };
 		478D1C25215A5EE500F0784A /* MyProfileRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileRequest.swift; sourceTree = "<group>"; };
 		478D1C27215BB6C300F0784A /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
@@ -111,9 +116,18 @@
 				47212FE62156512D00FA2DAC /* Info.plist */,
 				478D1C33215D60A400F0784A /* Models */,
 				478D1C35215D611A00F0784A /* Resources */,
+				47889D0F217345B200E35313 /* Services */,
 				478D1C34215D60E600F0784A /* ViewControllers */,
 			);
 			path = CheckInKeeper;
+			sourceTree = "<group>";
+		};
+		47889D0F217345B200E35313 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				47889D10217345D500E35313 /* FacebookService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		478D1C33215D60A400F0784A /* Models */ = {
@@ -147,11 +161,12 @@
 			isa = PBXGroup;
 			children = (
 				47212FE12156512D00FA2DAC /* Assets.xcassets */,
-				47212FE32156512D00FA2DAC /* LaunchScreen.storyboard */,
 				474D23B12163EF5200AE3953 /* Constants.swift */,
+				47889D1A2174A6F600E35313 /* GoogleMapsApiKey.txt */,
 				474D23B3216400AC00AE3953 /* GoogleMapsStyle.json */,
-				474D23B52164A9BC00AE3953 /* MapMarkerWindowView.xib */,
 				474D23B92164B34600AE3953 /* InfoWindow.swift */,
+				474D23B52164A9BC00AE3953 /* InfoWindow.xib */,
+				47212FE32156512D00FA2DAC /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -207,6 +222,7 @@
 				47212FD52156512C00FA2DAC /* Resources */,
 				49B93B955DD3511EE8B20818 /* [CP] Embed Pods Frameworks */,
 				C33B9EE409290BCC6FA7EF7B /* [CP] Copy Pods Resources */,
+				47726A1E21725CAC007DD539 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -255,8 +271,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47889D1C2174B81F00E35313 /* GoogleMapsApiKey.txt in Resources */,
 				47212FE52156512D00FA2DAC /* LaunchScreen.storyboard in Resources */,
-				474D23B62164A9BC00AE3953 /* MapMarkerWindowView.xib in Resources */,
+				474D23B62164A9BC00AE3953 /* InfoWindow.xib in Resources */,
 				47212FE22156512D00FA2DAC /* Assets.xcassets in Resources */,
 				474D23B4216400AC00AE3953 /* GoogleMapsStyle.json in Resources */,
 				47212FE02156512C00FA2DAC /* Main.storyboard in Resources */,
@@ -266,6 +283,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		47726A1E21725CAC007DD539 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		49B93B955DD3511EE8B20818 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -332,14 +366,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CheckInKeeper/Pods-CheckInKeeper-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -366,6 +398,7 @@
 				478D1C2E215D3EFF00F0784A /* DetailsTableViewController.swift in Sources */,
 				478D1C32215D5C2200F0784A /* StringExtension.swift in Sources */,
 				478D1C44215F8C8700F0784A /* MainTableViewCell.swift in Sources */,
+				47889D1B2174A6F600E35313 /* GoogleMapsApiKey.txt in Sources */,
 				47117DA321691B04008E808C /* MapLocation.swift in Sources */,
 				478D1C2A215CF0CF00F0784A /* ListTableViewController.swift in Sources */,
 				478D1C3A215DF54D00F0784A /* Place.swift in Sources */,
@@ -375,6 +408,7 @@
 				478D1C462160BE2700F0784A /* NothingFoundTableViewCell.swift in Sources */,
 				478D1C4B2161095500F0784A /* DetailTableViewCell.swift in Sources */,
 				474D23BA2164B34600AE3953 /* InfoWindow.swift in Sources */,
+				47889D11217345D500E35313 /* FacebookService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,13 +556,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8C5P567C39;
+				DEVELOPMENT_TEAM = 3ULF3E829Y;
 				INFOPLIST_FILE = CheckInKeeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mihaelaSi.CheckInKeeper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cserban.CheckInKeeper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -541,13 +575,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8C5P567C39;
+				DEVELOPMENT_TEAM = 3ULF3E829Y;
 				INFOPLIST_FILE = CheckInKeeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mihaelaSi.CheckInKeeper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cserban.CheckInKeeper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;

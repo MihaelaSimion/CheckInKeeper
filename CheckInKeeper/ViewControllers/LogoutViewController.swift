@@ -18,6 +18,8 @@ class LogoutViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = Constants.Colors.backgroundColor
+        logoutButton.backgroundColor = Constants.Colors.buttonColor
         logoutButton.layer.cornerRadius = Constants.CornerRadiusValues.buttonCornerRadius
         logoutButton.showsTouchWhenHighlighted = true
 

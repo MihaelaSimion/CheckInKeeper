@@ -37,6 +37,7 @@ class MapTableViewCell: UITableViewCell {
         } catch {
             NSLog("One or more of the map styles failed to load. \(error)")
         }
+
         let coordinates = getCoordinates()
         let defaultCamera = GMSCameraPosition(target: CLLocationCoordinate2D(latitude: coordinates.latitude, longitude: coordinates.longitude), zoom: 14.0, bearing: 0.0, viewingAngle: 0.0)
         mapView.camera = defaultCamera

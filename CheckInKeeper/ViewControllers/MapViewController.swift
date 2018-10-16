@@ -12,6 +12,7 @@ import GoogleMaps
 class MapViewController: UIViewController {
     @IBOutlet private weak var mapView: GMSMapView!
     let locationManager = CLLocationManager()
+    let distanceFilterToUpdateLocation: Double = 1000
     var taggedPlace: TaggedPlace?
     var infoWindow: InfoWindow?
     var tappedMarker: GMSMarker?
@@ -47,7 +48,7 @@ class MapViewController: UIViewController {
             NSLog("One or more of the map styles failed to load. \(error)")
         }
 
-        let defaultCamera = GMSCameraPosition(target: CLLocationCoordinate2D(latitude: 45.9432, longitude: 24.9668), zoom: 7.0, bearing: 0.0, viewingAngle: 0.0)
+        let defaultCamera = GMSCameraPosition(target: CLLocationCoordinate2D(latitude: Constants.MapCameraSettings.defaultCameraLatitude, longitude: Constants.MapCameraSettings.defaultCameraLongitude), zoom: Constants.MapCameraSettings.defaultCameraZoom, bearing: 0.0, viewingAngle: 0.0)
         mapView.camera = defaultCamera
     }
 
@@ -91,14 +92,14 @@ extension MapViewController: CLLocationManagerDelegate {
 
         locationManager.startUpdatingLocation()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = 1000
+        locationManager.distanceFilter = distanceFilterToUpdateLocation
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let currentLocation = locations.first else { return }
-        let camera = GMSCameraPosition(target: currentLocation.coordinate, zoom: 12.0, bearing: 0.0, viewingAngle: 0.0)
+        let camera = GMSCameraPosition(target: currentLocation.coordinate, zoom: Constants.MapCameraSettings.currentLocationFoundZoom, bearing: 0.0, viewingAngle: 0.0)
         mapView.animate(to: camera)
     }
 }

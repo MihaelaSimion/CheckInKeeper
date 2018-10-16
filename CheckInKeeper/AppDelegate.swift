@@ -13,13 +13,24 @@ import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+
     var window: UIWindow?
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
-        GMSServices.provideAPIKey(Constants.ApiKeys.google)
-        
+
+        if let filepath = Bundle.main.path(forResource: "GoogleMapsApiKey", ofType: "txt") {
+            do {
+                let apiKey = try String(contentsOfFile: filepath)
+                let key = String(apiKey.filter { !"\n".contains($0) })
+                GMSServices.provideAPIKey(key)
+            } catch {
+                print("Error: Unable to load from filepath")
+            }
+        } else {
+            print("You have to get a Google Api Key first!")
+        }
+
         if AccessToken.current != nil {
             showTabBarVC()
         } else {
@@ -27,11 +38,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return true
     }
-    
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         return SDKApplicationDelegate.shared.application(app, open: url, options: options)
     }
-    
+
     func showTabBarVC() {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let tabBarViewController = mainStoryboard.instantiateViewController(withIdentifier: "TabBar")
@@ -40,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         window?.rootViewController = tabBarViewController
     }
-    
+
     func showLoginVC() {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let loginViewController = mainStoryboard.instantiateViewController(withIdentifier: "Login")

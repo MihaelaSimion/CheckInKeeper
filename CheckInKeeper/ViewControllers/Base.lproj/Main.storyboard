@@ -68,13 +68,12 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnL-wW-wqB">
                                 <rect key="frame" x="60" y="455" width="200" height="44"/>
-                                <color key="backgroundColor" red="0.2627450980392157" green="0.62745098039215685" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="78N-Nf-kCM"/>
                                     <constraint firstAttribute="height" constant="44" id="zRi-Mp-dHH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="Logout">
+                                <state key="normal" title="Log out">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
@@ -82,7 +81,6 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.20000000000000001" green="0.34901960784313724" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="iIx-0T-5wQ" firstAttribute="leading" secondItem="Une-0b-7e0" secondAttribute="leading" constant="16" id="A2c-h3-eIW"/>
                             <constraint firstItem="Une-0b-7e0" firstAttribute="bottom" secondItem="tnL-wW-wqB" secondAttribute="bottom" constant="20" id="D7Z-9d-fV4"/>
@@ -167,7 +165,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dnP-V3-a38">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.20000000000000001" green="0.34901960784313724" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                         <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
                         <prototypes>
@@ -204,11 +202,10 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QlS-OH-qhQ">
                                                             <rect key="frame" x="12" y="6" width="8" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.34901960784313724" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="QlS-OH-qhQ" firstAttribute="centerX" secondItem="tIC-cd-6vs" secondAttribute="centerX" id="4ov-Rg-q8L"/>
                                                         <constraint firstAttribute="width" constant="32" id="B1k-47-Skb"/>
@@ -223,7 +220,6 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
                                                         </imageView>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.2627450980392157" green="0.62745098039215685" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="32" id="3XB-7k-XB4"/>
                                                         <constraint firstAttribute="trailing" secondItem="v7Q-NC-c8B" secondAttribute="trailing" id="FVS-ZB-fhC"/>
@@ -345,7 +341,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="lXT-2n-WGZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.20000000000000001" green="0.34901960784313724" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mapViewCell" id="X7J-Q1-aS8" customClass="MapTableViewCell" customModule="CheckInKeeper" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
@@ -457,19 +453,17 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ki-BL-TYz">
                                 <rect key="frame" x="60" y="262" width="200" height="44"/>
-                                <color key="backgroundColor" red="0.2627450980392157" green="0.62745098039215685" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="GoH-nS-WC4"/>
                                     <constraint firstAttribute="width" constant="200" id="Wkk-qw-3A6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="Login with Facebook"/>
+                                <state key="normal" title="Log in with Facebook"/>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="4Wm-Hs-xDj" eventType="touchUpInside" id="c0t-uI-PR8"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.20000000000000001" green="0.34901960784313724" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="7ki-BL-TYz" firstAttribute="centerX" secondItem="4k4-8S-rK8" secondAttribute="centerX" id="Qi1-HW-Z01"/>
@@ -513,7 +507,7 @@
         <image name="logoutFromProfile" width="24" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sv6-ot-X9q"/>
+        <segue reference="5Gp-Xg-exV"/>
         <segue reference="6zI-Rw-BsK"/>
     </inferredMetricsTieBreakers>
 </document>

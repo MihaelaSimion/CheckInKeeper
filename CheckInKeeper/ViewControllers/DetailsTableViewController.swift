@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GoogleMaps
 
 class DetailsTableViewController: UITableViewController {
     var taggedPlace: TaggedPlace?
@@ -16,6 +15,7 @@ class DetailsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Check-in details:"
+        tableView.backgroundColor = Constants.Colors.backgroundColor
     }
 
     // MARK: Table view data source:

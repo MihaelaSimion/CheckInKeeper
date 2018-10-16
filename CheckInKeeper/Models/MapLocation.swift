@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import GoogleMaps
 
 struct MapLocation {
     var placeID: String

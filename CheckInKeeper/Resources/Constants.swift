@@ -9,12 +9,20 @@
 import UIKit
 
 struct Constants {
-    struct ApiKeys {
-        static let google = "AIzaSyB-1z-rG_KyG0mSI8nGAiHOTZA6EBMtQ4M"
-    }
-    
+
     struct Colors {
         static let backgroundColor = UIColor(red: 51.0/255.0, green: 89.0/255.0, blue: 113.0/255.0, alpha: 1.0)
         static let buttonColor = UIColor(red: 67.0/255.0, green: 160.0/255.0, blue: 173.0/255.0, alpha: 1.0)
+    }
+
+    struct CornerRadiusValues {
+        static let buttonCornerRadius: CGFloat = 10
+    }
+
+    struct MapCameraSettings {
+        static let defaultCameraLatitude = 45.9432
+        static let defaultCameraLongitude = 24.9668
+        static let defaultCameraZoom: Float = 7.0
+        static let currentLocationFoundZoom: Float = 12.0
     }
 }
