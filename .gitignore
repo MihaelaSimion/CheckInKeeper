@@ -77,3 +77,6 @@ fastlane/test_output
 
 iOSInjectionProject/
 .DS_store
+
+GoogleMapsApiKey.txt
+

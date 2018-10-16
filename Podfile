@@ -10,5 +10,5 @@ target 'CheckInKeeper' do
   pod 'FacebookLogin'
   pod 'FacebookShare'
   pod 'GoogleMaps'
-  pod 'GooglePlaces'
+  pod 'SwiftLint'
 end
