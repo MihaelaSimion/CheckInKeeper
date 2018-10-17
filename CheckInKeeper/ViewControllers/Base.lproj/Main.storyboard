@@ -20,7 +20,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iIx-0T-5wQ">
                                 <rect key="frame" x="16" y="99" width="288" height="286"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Facebook-logo" translatesAutoresizingMaskIntoConstraints="NO" id="Qw0-pq-0uj">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="Qw0-pq-0uj">
                                         <rect key="frame" x="0.0" y="8" width="200" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="F5J-bD-wOF"/>
@@ -500,7 +500,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Facebook-logo" width="150" height="150"/>
+        <image name="ProfileImage" width="200" height="200"/>
         <image name="iconArrow" width="9" height="13"/>
         <image name="list" width="26" height="26"/>
         <image name="locationPin" width="26" height="26"/>
