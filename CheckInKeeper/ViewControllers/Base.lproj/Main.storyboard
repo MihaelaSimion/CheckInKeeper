@@ -9,6 +9,51 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Privacy Policy View Controller-->
+        <scene sceneID="IHh-v1-SMh">
+            <objects>
+                <viewController id="NcO-IX-aIR" customClass="PrivacyPolicyViewController" customModule="CheckInKeeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oqm-ed-Kjh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b2M-Ys-Pv0">
+                                <rect key="frame" x="0.0" y="66" width="320" height="502"/>
+                                <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWy-xc-rbX">
+                                <rect key="frame" x="246" y="36" width="58" height="34"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="dismissButtonTapped" destination="NcO-IX-aIR" eventType="touchUpInside" id="ksM-Jr-nJz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mWy-xc-rbX" firstAttribute="top" secondItem="6T3-I7-s6c" secondAttribute="top" constant="16" id="7WS-Mb-Ido"/>
+                            <constraint firstAttribute="trailing" secondItem="b2M-Ys-Pv0" secondAttribute="trailing" id="G77-P2-uBQ"/>
+                            <constraint firstItem="b2M-Ys-Pv0" firstAttribute="top" secondItem="oqm-ed-Kjh" secondAttribute="top" constant="66" id="X1q-Ff-CDA"/>
+                            <constraint firstItem="6T3-I7-s6c" firstAttribute="trailing" secondItem="mWy-xc-rbX" secondAttribute="trailing" constant="16" id="d4B-Dm-2oK"/>
+                            <constraint firstItem="b2M-Ys-Pv0" firstAttribute="leading" secondItem="oqm-ed-Kjh" secondAttribute="leading" id="hhJ-St-ipF"/>
+                            <constraint firstAttribute="bottom" secondItem="b2M-Ys-Pv0" secondAttribute="bottom" id="mDN-o2-hbB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6T3-I7-s6c"/>
+                    </view>
+                    <connections>
+                        <outlet property="dismissButton" destination="mWy-xc-rbX" id="N1l-Fm-ph6"/>
+                        <outlet property="webView" destination="b2M-Ys-Pv0" id="X4Z-cU-xSp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ARW-QR-9m2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1299.375" y="857.74647887323943"/>
+        </scene>
         <!--Logout-->
         <scene sceneID="RtX-2V-o7t">
             <objects>
@@ -351,7 +396,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eza-oo-HW8" userLabel="MapView" customClass="GMSMapView">
-                                            <rect key="frame" x="16" y="6" width="288" height="190"/>
+                                            <rect key="frame" x="8" y="6" width="304" height="190"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="190" id="ycC-ju-hE0"/>
@@ -360,8 +405,8 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="Eza-oo-HW8" firstAttribute="leading" secondItem="qoh-bZ-fCY" secondAttribute="leading" constant="16" id="0tw-FE-u1B"/>
-                                        <constraint firstAttribute="trailing" secondItem="Eza-oo-HW8" secondAttribute="trailing" constant="16" id="2pq-dj-9rs"/>
+                                        <constraint firstItem="Eza-oo-HW8" firstAttribute="leading" secondItem="qoh-bZ-fCY" secondAttribute="leading" constant="8" id="0tw-FE-u1B"/>
+                                        <constraint firstAttribute="trailing" secondItem="Eza-oo-HW8" secondAttribute="trailing" constant="8" id="2pq-dj-9rs"/>
                                         <constraint firstItem="Eza-oo-HW8" firstAttribute="top" secondItem="qoh-bZ-fCY" secondAttribute="top" constant="6" id="RwP-mc-83X"/>
                                         <constraint firstAttribute="bottom" secondItem="Eza-oo-HW8" secondAttribute="bottom" constant="6" id="sBC-17-qqD"/>
                                     </constraints>
@@ -463,16 +508,31 @@
                                     <action selector="loginButtonPressed:" destination="4Wm-Hs-xDj" eventType="touchUpInside" id="c0t-uI-PR8"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C3R-sp-KBf">
+                                <rect key="frame" x="49.5" y="468" width="221" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="XNb-rx-UOH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Click to read our Privacy Policy"/>
+                                <connections>
+                                    <action selector="privacyPolicyButtonTapped:" destination="4Wm-Hs-xDj" eventType="touchUpInside" id="h4V-vG-TSn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="7ki-BL-TYz" firstAttribute="centerX" secondItem="4k4-8S-rK8" secondAttribute="centerX" id="Qi1-HW-Z01"/>
+                            <constraint firstItem="C3R-sp-KBf" firstAttribute="centerX" secondItem="4k4-8S-rK8" secondAttribute="centerX" id="Xds-57-1aZ"/>
+                            <constraint firstItem="J3B-as-AxO" firstAttribute="bottom" secondItem="C3R-sp-KBf" secondAttribute="bottom" constant="40" id="dZi-0r-hhd"/>
                             <constraint firstItem="7ki-BL-TYz" firstAttribute="centerY" secondItem="4k4-8S-rK8" secondAttribute="centerY" id="hm9-Ef-v3P"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="J3B-as-AxO"/>
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="7ki-BL-TYz" id="Xvy-z6-3C5"/>
+                        <segue destination="NcO-IX-aIR" kind="presentation" identifier="ShowPrivacyPolicy" id="adI-a8-Mua"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="udB-iM-sS6" userLabel="First Responder" sceneMemberID="firstResponder"/>

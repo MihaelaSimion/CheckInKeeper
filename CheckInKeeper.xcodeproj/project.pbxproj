@@ -34,6 +34,7 @@
 		478D1C462160BE2700F0784A /* NothingFoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C452160BE2700F0784A /* NothingFoundTableViewCell.swift */; };
 		478D1C492161093600F0784A /* MapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C482161093600F0784A /* MapTableViewCell.swift */; };
 		478D1C4B2161095500F0784A /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478D1C4A2161095500F0784A /* DetailTableViewCell.swift */; };
+		47B71A1621777AB8002C28B9 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B71A1521777AB8002C28B9 /* PrivacyPolicyViewController.swift */; };
 		47C51B2221592EE900F13ECE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C51B2121592EE900F13ECE /* MapViewController.swift */; };
 		47C8513F2156B91A00CF7DE2 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C8513E2156B91A00CF7DE2 /* MyTabBarController.swift */; };
 		47F68EF22156A7F100C64FF5 /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F68EF12156A7F100C64FF5 /* LogoutViewController.swift */; };
@@ -72,6 +73,7 @@
 		478D1C452160BE2700F0784A /* NothingFoundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NothingFoundTableViewCell.swift; sourceTree = "<group>"; };
 		478D1C482161093600F0784A /* MapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableViewCell.swift; sourceTree = "<group>"; };
 		478D1C4A2161095500F0784A /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		47B71A1521777AB8002C28B9 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		47C51B2121592EE900F13ECE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		47C8513E2156B91A00CF7DE2 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		47F68EF12156A7F100C64FF5 /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				47212FDE2156512C00FA2DAC /* Main.storyboard */,
 				47C51B2121592EE900F13ECE /* MapViewController.swift */,
 				47C8513E2156B91A00CF7DE2 /* MyTabBarController.swift */,
+				47B71A1521777AB8002C28B9 /* PrivacyPolicyViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 			files = (
 				47212FDD2156512C00FA2DAC /* LoginViewController.swift in Sources */,
 				474D23B22163EF5200AE3953 /* Constants.swift in Sources */,
+				47B71A1621777AB8002C28B9 /* PrivacyPolicyViewController.swift in Sources */,
 				478D1C24215A46AD00F0784A /* TaggedPlacesResponse.swift in Sources */,
 				478D1C492161093600F0784A /* MapTableViewCell.swift in Sources */,
 				478D1C28215BB6C300F0784A /* NotificationExtension.swift in Sources */,

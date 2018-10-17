@@ -26,6 +26,10 @@ class LoginViewController: UIViewController {
         loginButton.showsTouchWhenHighlighted = true
     }
 
+    @IBAction private func privacyPolicyButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "ShowPrivacyPolicy", sender: self)
+    }
+
     @IBAction private func loginButtonPressed(_ sender: Any) {
         let loginManager = LoginManager()
         loginManager.logIn(readPermissions: [.publicProfile, .userTaggedPlaces], viewController: self) { loginResult in
