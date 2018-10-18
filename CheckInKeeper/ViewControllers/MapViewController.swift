@@ -59,7 +59,13 @@ class MapViewController: UIViewController {
             let position = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
             let marker = GMSMarker(position: position)
             marker.title = place.name
-            marker.snippet = "\(location.city ?? ""), \(location.country ?? "")\n\(location.street ?? "")"
+
+            if let city = location.city, let country = location.country {
+                marker.snippet = "\(city), \(country)\n\(location.street ?? "")"
+            } else {
+                marker.snippet = ""
+            }
+
             marker.icon = UIImage(named: "bluePin")
             marker.map = mapView
             marker.userData = mapLocation.placeID

@@ -46,7 +46,7 @@
                         <viewLayoutGuide key="safeArea" id="6T3-I7-s6c"/>
                     </view>
                     <connections>
-                        <outlet property="dismissButton" destination="mWy-xc-rbX" id="N1l-Fm-ph6"/>
+                        <outlet property="cancelButton" destination="mWy-xc-rbX" id="N1l-Fm-ph6"/>
                         <outlet property="webView" destination="b2M-Ys-Pv0" id="X4Z-cU-xSp"/>
                     </connections>
                 </viewController>

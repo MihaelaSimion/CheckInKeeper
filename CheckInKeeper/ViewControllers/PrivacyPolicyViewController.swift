@@ -11,18 +11,15 @@ import WebKit
 
 class PrivacyPolicyViewController: UIViewController, WKNavigationDelegate {
     @IBOutlet private weak var webView: WKWebView!
-    @IBOutlet private weak var dismissButton: UIButton!
+    @IBOutlet private weak var cancelButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         webView.navigationDelegate = self
         view.backgroundColor = Constants.Colors.backgroundColor
-        dismissButton.backgroundColor = UIColor.clear
-        dismissButton.setTitleColor(.white, for: .normal)
-    }
+        cancelButton.backgroundColor = UIColor.clear
+        cancelButton.setTitleColor(.white, for: .normal)
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         guard let url = URL(string: "https://www.websitepolicies.com/policies/view/156hxlZ9") else { return }
         let request = URLRequest(url: url)
         webView.load(request)
