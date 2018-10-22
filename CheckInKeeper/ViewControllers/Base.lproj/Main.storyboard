@@ -26,7 +26,7 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWy-xc-rbX">
-                                <rect key="frame" x="246" y="36" width="58" height="34"/>
+                                <rect key="frame" x="246" y="36" width="58" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
@@ -38,7 +38,8 @@
                         <constraints>
                             <constraint firstItem="mWy-xc-rbX" firstAttribute="top" secondItem="6T3-I7-s6c" secondAttribute="top" constant="16" id="7WS-Mb-Ido"/>
                             <constraint firstAttribute="trailing" secondItem="b2M-Ys-Pv0" secondAttribute="trailing" id="G77-P2-uBQ"/>
-                            <constraint firstItem="b2M-Ys-Pv0" firstAttribute="top" secondItem="oqm-ed-Kjh" secondAttribute="top" constant="66" id="X1q-Ff-CDA"/>
+                            <constraint firstItem="b2M-Ys-Pv0" firstAttribute="top" secondItem="mWy-xc-rbX" secondAttribute="bottom" id="HmB-oe-rhQ"/>
+                            <constraint firstItem="b2M-Ys-Pv0" firstAttribute="top" secondItem="6T3-I7-s6c" secondAttribute="top" constant="46" id="X1q-Ff-CDA"/>
                             <constraint firstItem="6T3-I7-s6c" firstAttribute="trailing" secondItem="mWy-xc-rbX" secondAttribute="trailing" constant="16" id="d4B-Dm-2oK"/>
                             <constraint firstItem="b2M-Ys-Pv0" firstAttribute="leading" secondItem="oqm-ed-Kjh" secondAttribute="leading" id="hhJ-St-ipF"/>
                             <constraint firstAttribute="bottom" secondItem="b2M-Ys-Pv0" secondAttribute="bottom" id="mDN-o2-hbB"/>
