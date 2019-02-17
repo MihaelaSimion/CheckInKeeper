@@ -16,6 +16,7 @@ class DetailsTableViewController: UITableViewController {
         super.viewDidLoad()
         title = "Check-in details:"
         tableView.backgroundColor = Constants.Colors.backgroundColor
+        tableView.contentInset.bottom = 6
     }
 
     // MARK: Table view data source:
